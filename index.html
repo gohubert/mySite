@@ -35,7 +35,7 @@
         }
     </script>
     <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&family=Noto+Sans+TC:wght=300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -109,10 +109,7 @@
             </nav>
 
             <!-- CTA Button -->
-            <div class="hidden md:flex items-center space-x-4">
-                <button onclick="downloadPage()" class="px-4 py-2 bg-gray-800 hover:bg-gray-750 text-gray-300 hover:text-white font-semibold rounded-xl text-xs transition-colors border border-gray-700 flex items-center gap-1.5">
-                    <i class="fa-solid fa-download text-brand-accent"></i> 下載 index.html
-                </button>
+            <div class="hidden md:flex items-center">
                 <a href="#contact" class="px-5 py-2.5 bg-gradient-to-r from-brand-500 to-brand-accent text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-brand-500/20 transition-all duration-300 hover:-translate-y-0.5 text-sm">
                     預約 AI 導入諮詢
                 </a>
@@ -132,12 +129,7 @@
             <a href="#calculator" class="block px-3 py-2 rounded-md text-base font-medium text-brand-accent hover:bg-gray-800">AI轉型成熟度檢測</a>
             <a href="#clients" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white">合作夥伴</a>
             <a href="#philosophy" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white">教學初心</a>
-            <div class="pt-2 space-y-2">
-                <button onclick="downloadPage()" class="w-full py-3 bg-gray-800 text-gray-300 rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-1.5 border border-gray-700">
-                    <i class="fa-solid fa-download text-brand-accent"></i> 一鍵下載本網頁 (index.html)
-                </button>
-                <a href="#contact" class="block text-center px-4 py-3 bg-gradient-to-r from-brand-500 to-brand-accent text-white font-semibold rounded-xl hover:scale-[1.02] transition-transform">預約 AI 導入諮詢</a>
-            </div>
+            <a href="#contact" class="block text-center px-4 py-3 bg-gradient-to-r from-brand-500 to-brand-accent text-white font-semibold rounded-xl hover:scale-[1.02] transition-transform">預約 AI 導入諮詢</a>
         </div>
     </header>
 
@@ -182,9 +174,9 @@
                         <a href="#calculator" class="w-full sm:w-auto text-center px-8 py-4 bg-gradient-to-r from-brand-500 to-brand-accent text-white font-bold rounded-xl shadow-lg shadow-brand-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2">
                             <i class="fa-solid fa-chart-line-up"></i> 即刻評估您的企業 AI 成熟度
                         </a>
-                        <button onclick="downloadPage()" class="w-full sm:w-auto text-center px-8 py-4 bg-gray-800/60 border border-gray-700 text-gray-300 font-semibold rounded-xl hover:bg-gray-800 hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-download text-brand-accent"></i> 下載網頁 (index.html)
-                        </button>
+                        <a href="#success" class="w-full sm:w-auto text-center px-8 py-4 bg-gray-800/60 border border-gray-700 text-gray-300 font-semibold rounded-xl hover:bg-gray-800 hover:text-white transition-all duration-300">
+                            瀏覽企業實績案例
+                        </a>
                     </div>
                 </div>
 
@@ -877,4 +869,464 @@
                     <span class="text-sm font-bold text-white">國立中央大學</span>
                     <span class="text-[10px] text-gray-500 mt-1 uppercase">地球科學與資訊重鎮</span>
                 </div>
-                <div class="client-item bg-brand-cardbg border border-gray-800/60 rounded-xl p-5 flex flex-col justify
+                <div class="client-item bg-brand-cardbg border border-gray-800/60 rounded-xl p-5 flex flex-col justify-center items-center text-center transition-all hover:border-amber-500/30" data-cat="university">
+                    <i class="fa-solid fa-graduation-cap text-2xl text-gray-400 mb-2"></i>
+                    <span class="text-sm font-bold text-white">國立臺北科技大學</span>
+                    <span class="text-[10px] text-gray-500 mt-1 uppercase">北科大 頂尖實業家搖籃</span>
+                </div>
+                <div class="client-item bg-brand-cardbg border border-gray-800/60 rounded-xl p-5 flex flex-col justify-center items-center text-center transition-all hover:border-amber-500/30" data-cat="university">
+                    <i class="fa-solid fa-graduation-cap text-2xl text-gray-400 mb-2"></i>
+                    <span class="text-sm font-bold text-white">國立臺中科技大學</span>
+                    <span class="text-[10px] text-gray-500 mt-1 uppercase">中科大 中台灣應用教育指標</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Philosophy, Style, and Why-How-Impact -->
+    <section id="philosophy" class="py-20 bg-gray-950/40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Narrative Card (Why) -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-sm font-bold tracking-widest text-brand-accent uppercase">MISSION & PHILOSOPHY</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">「學會一項技能，有機會改變一生。」</h2>
+                    <p class="text-gray-300 font-light leading-relaxed">
+                        在每一場實體課程、顧問諮詢與技術工作坊中，楊老師不只重視精巧的工具調研，更在乎每一位學員：<br>
+                        <strong class="text-white">是否能跨出這革命性的第一步？是否能看清自己的獨特定位？是否能將所得立刻應用於工作，藉此突破現狀？</strong>
+                    </p>
+                    <p class="text-gray-300 font-light leading-relaxed">
+                        AI 的高速發展不應是讓人焦慮、邊緣化的壓力，而是應成為我們所有人隨手借力的強大「翅膀」。
+                    </p>
+
+                    <div class="p-6 bg-brand-cardbg border-l-4 border-brand-accent rounded-r-2xl">
+                        <h5 class="text-base font-bold text-white mb-2">「人機協作」的核心思維</h5>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            楊老師深信，人與 AI 的最佳狀態是：<strong class="text-brand-accent">AI 負責所有重合性、格式化與大體量資料處理；人類專注於終極創意、情境判斷與溫度傳遞。</strong>
+                            透過完美的任務解構與權能分配，讓工作更有效率，人生更有餘裕。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Style Cards (How & Impact) -->
+                <div class="lg:col-span-6 space-y-6">
+                    <!-- Style Item 1: How -->
+                    <div class="bg-brand-cardbg border border-gray-800 p-6 rounded-2xl flex gap-5">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-500/10 text-brand-500 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white">陪伴式教學風格 (How)</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                堅持 <strong class="text-white">Step-by-step 圖解式</strong> 基礎到進階指導，直接將真實工作情境切入課堂，採取高度陪伴式與即時成果修正。不講聽不懂的空洞術語，重點永遠只有一個——「動手做得出來、帶得走、能落地」。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Style Item 2: Impact -->
+                    <div class="bg-brand-cardbg border border-gray-800 p-6 rounded-2xl flex gap-5">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-accent/10 text-brand-accent flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-bolt-lightning"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white">可衡量的學員影響力 (Impact)</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                二十五年來累積引導 <strong class="text-white">上千名零背景學員</strong> 成功蛻變為合格軟體工程師，更有極高比例的學員在課後，立即在原本的企業內獨立發起 AI 工作流程優化專案。楊老師改變的不只是技能，更是無數人的職涯方向與工作觀。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Style Item 3: Vision -->
+                    <div class="bg-brand-cardbg border border-gray-800 p-6 rounded-2xl flex gap-5">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-cyanAccent/10 text-brand-cyanAccent flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-bold text-white">終極願景 (Vision)</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                持續推廣企業級與全民 AI 賦能教育。讓更多人能藉由 AI 槓桿提升每日效能、增加中長期收入、豐富其職涯選擇，最終切實改善生活品質。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Consultation & Form Section -->
+    <section id="contact" class="py-20 bg-brand-darkbg relative border-t border-gray-900">
+        <!-- Floating details -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-500/5 rounded-full filter blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-gradient-to-tr from-brand-cardbg to-gray-900 border border-gray-800 rounded-3xl p-8 sm:p-12 shadow-2xl space-y-8">
+                <div class="text-center space-y-3">
+                    <span class="text-sm font-bold tracking-widest text-brand-accent uppercase">Let's Connect</span>
+                    <h2 class="text-3xl font-extrabold text-white">立即啟動您的 AI 轉型旅程</h2>
+                    <p class="text-gray-400 text-sm max-w-xl mx-auto">
+                        無論您是企業負責人、高階主管、公部門政策代表、亦或是尋求 AI 能力翻身的專業人才。填寫下方諮詢表，我們將主動與您取得聯繫。
+                    </p>
+                </div>
+
+                <form id="consultation-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2" for="name">
+                                姓名 / 稱呼 <span class="text-brand-accent">*</span>
+                            </label>
+                            <input class="w-full bg-gray-800/60 border border-gray-700/80 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors" type="text" id="name" placeholder="例：林經理" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2" for="org">
+                                服務機構 / 企業名稱
+                            </label>
+                            <input class="w-full bg-gray-800/60 border border-gray-700/80 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors" type="text" id="org" placeholder="例：新竹智慧科技股份有限公司">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2" for="email">
+                                電子信箱 <span class="text-brand-accent">*</span>
+                            </label>
+                            <input class="w-full bg-gray-800/60 border border-gray-700/80 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors" type="email" id="email" placeholder="example@domain.com" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2" for="phone">
+                                聯絡電話
+                            </label>
+                            <input class="w-full bg-gray-800/60 border border-gray-700/80 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors" type="tel" id="phone" placeholder="例：0912-345678">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2" for="interest">
+                            您有興趣的合作項目 (複選) <span class="text-brand-accent">*</span>
+                        </label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm pt-1">
+                            <label class="flex items-center space-x-3 bg-gray-800/30 p-3 rounded-lg border border-gray-800 hover:border-gray-700 cursor-pointer">
+                                <input type="checkbox" name="interests" value="corporate-consulting" class="rounded text-brand-500 focus:ring-brand-500 bg-gray-700 border-gray-600">
+                                <span class="text-gray-300">企業 AI 導入長期顧問</span>
+                            </label>
+                            <label class="flex items-center space-x-3 bg-gray-800/30 p-3 rounded-lg border border-gray-800 hover:border-gray-700 cursor-pointer">
+                                <input type="checkbox" name="interests" value="internal-training" class="rounded text-brand-500 focus:ring-brand-500 bg-gray-700 border-gray-600">
+                                <span class="text-gray-300">組織內部 AI 實戰工作坊 / 培訓</span>
+                            </label>
+                            <label class="flex items-center space-x-3 bg-gray-800/30 p-3 rounded-lg border border-gray-800 hover:border-gray-700 cursor-pointer">
+                                <input type="checkbox" name="interests" value="agent-dev" class="rounded text-brand-500 focus:ring-brand-500 bg-gray-700 border-gray-600">
+                                <span class="text-gray-300">AI Agent 與 RAG 系統開發建置</span>
+                            </label>
+                            <label class="flex items-center space-x-3 bg-gray-800/30 p-3 rounded-lg border border-gray-800 hover:border-gray-700 cursor-pointer">
+                                <input type="checkbox" name="interests" value="public-speaking" class="rounded text-brand-500 focus:ring-brand-500 bg-gray-700 border-gray-600">
+                                <span class="text-gray-300">政府公部門、學界主題演講</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2" for="message">
+                            請簡單描述您組織目前的痛點與預期期望
+                        </label>
+                        <textarea class="w-full bg-gray-800/60 border border-gray-700/80 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors h-32" id="message" placeholder="描述您目前遭遇的 AI 導入瓶頸或需求..."></textarea>
+                    </div>
+
+                    <!-- Custom Message Center (No alert banner) -->
+                    <div id="form-msg" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-brand-500 to-brand-accent text-white font-bold rounded-xl shadow-lg shadow-brand-500/20 hover:shadow-brand-500/35 transition-all duration-300 text-center block">
+                        送出諮詢表單，預約專家時間
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-950 border-t border-gray-900 pt-16 pb-8 text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Footer Info -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-gradient-to-tr from-brand-500 to-brand-accent p-2 rounded-lg text-white">
+                            <i class="fa-solid fa-microchip-ai"></i>
+                        </div>
+                        <span class="text-white font-extrabold text-lg tracking-wider">楊宏文 老師</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed max-w-sm">
+                        楊宏文（楊老師）專注於企業生成式人工智慧（Generative AI）導入、AI 數位轉型與 AI Agent 應用落地。創立並經營個人媒體品牌「AI365」，陪伴上千名學員踏上 AI 創富與轉職之旅。
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <a href="https://placehold.co/600x400/0ea5e9/ffffff?text=AI365+Podcast" class="w-8 h-8 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-brand-500 hover:text-white transition-colors">
+                            <i class="fa-solid fa-podcast"></i>
+                        </a>
+                        <a href="https://placehold.co/600x400/10b981/ffffff?text=AI365+Blog" class="w-8 h-8 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-brand-accent hover:text-white transition-colors">
+                            <i class="fa-solid fa-rss"></i>
+                        </a>
+                        <a href="https://placehold.co/600x400/0ea5e9/ffffff?text=TibaMe" class="w-8 h-8 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Quick Links -->
+                <div>
+                    <h5 class="text-sm font-bold text-white uppercase tracking-wider mb-4">快捷連結</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#about" class="hover:text-brand-accent transition-colors">AI365 核心思想</a></li>
+                        <li><a href="#services" class="hover:text-brand-accent transition-colors">專業核心與工具箱</a></li>
+                        <li><a href="#success" class="hover:text-brand-accent transition-colors">企業導入成效</a></li>
+                        <li><a href="#calculator" class="hover:text-brand-accent transition-colors">線上成熟度診斷</a></li>
+                        <li><a href="#philosophy" class="hover:text-brand-accent transition-colors">陪伴教學初心</a></li>
+                    </ul>
+                </div>
+
+                <!-- SEO Tags list -->
+                <div>
+                    <h5 class="text-sm font-bold text-white uppercase tracking-wider mb-4">專長與關鍵字</h5>
+                    <div class="flex flex-wrap gap-1.5 text-[10px]">
+                        <span class="bg-gray-900 border border-gray-800 px-2 py-1 rounded">Generative AI</span>
+                        <span class="bg-gray-900 border border-gray-800 px-2 py-1 rounded">AI數位轉型</span>
+                        <span class="bg-gray-900 border border-gray-800 px-2 py-1 rounded">AI Agent</span>
+                        <span class="bg-gray-900 border border-gray-800 px-2 py-1 rounded">AI Workflow</span>
+                        <span class="bg-gray-900 border border-gray-800 px-2 py-1 rounded">RAG</span>
+                        <span class="bg-gray-900 border border-gray-800 px-2 py-1 rounded">AI Security</span>
+                        <span class="bg-gray-900 border border-gray-800 px-2 py-1 rounded">AI Governance</span>
+                        <span class="bg-gray-900 border border-gray-800 px-2 py-1 rounded">Vibe Coding</span>
+                        <span class="bg-gray-900 border border-gray-800 px-2 py-1 rounded">Prompt Engineering</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-8 border-t border-gray-900 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 AI365 | 楊宏文. All rights reserved. 版權所有，翻印必究。</p>
+                <div class="flex items-center space-x-4 mt-4 sm:mt-0">
+                    <span class="text-[10px] font-mono">Build with Spec-Driven Dev & Vibe Coding</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Background Audio Element -->
+    <audio id="bg-music" src="https://img.ai365.fans/artworks/5c659ac3-05a3-478e-8538-f5e325645737/pcnvs3si5i.mp3" loop></audio>
+
+    <!-- Floating Background Music Controller -->
+    <div class="fixed bottom-6 left-6 z-50 flex items-center gap-3">
+        <button id="music-toggle-btn" class="w-12 h-12 bg-brand-darkbg/90 border border-brand-accent/40 rounded-full flex items-center justify-center text-white shadow-lg shadow-brand-accent/10 hover:border-brand-accent hover:shadow-brand-accent/25 focus:outline-none backdrop-blur-md transition-all duration-300 group" aria-label="Toggle Background Music">
+            <!-- Dynamic Equalizer Animation or Mute Icon -->
+            <div id="equalizer" class="flex items-end gap-0.5 h-4">
+                <span class="music-bar music-bar-1 bg-gray-500"></span>
+                <span class="music-bar music-bar-2 bg-gray-500"></span>
+                <span class="music-bar music-bar-3 bg-gray-500"></span>
+            </div>
+        </button>
+        <div id="music-tooltip" class="bg-brand-darkbg/90 border border-gray-800 text-[11px] text-gray-300 px-3 py-2 rounded-xl backdrop-blur-md shadow-xl border-l-2 border-l-brand-accent font-medium tracking-wide flex items-center gap-1.5 transition-all duration-300 opacity-0 group-hover:opacity-100 select-none">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
+            <span id="music-status-text">播放背景音樂</span>
+        </div>
+    </div>
+
+
+    <script>
+        /*
+          This Javascript manages:
+          1. Mobile Hamburguer Menu.
+          2. Interactive AI Mature Assessment Tool with dynamically tailored advice.
+          3. Multi-Category client portfolio filter.
+          4. Smooth submission styling (no Alerts).
+          5. Background Music Player with interaction-safe autoplay support.
+        */
+
+        // Mobile Menu Toggling
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on clicking any navigation anchor
+        const mobileAnchors = mobileMenu.querySelectorAll('a');
+        mobileAnchors.forEach(anchor => {
+            anchor.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Background Music Toggle Logic
+        const bgMusic = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-toggle-btn');
+        const equalizer = document.getElementById('equalizer');
+        const musicTooltip = document.getElementById('music-tooltip');
+        const musicStatusText = document.getElementById('music-status-text');
+
+        // Show tooltip briefly on page load to invite interaction
+        setTimeout(() => {
+            musicTooltip.style.opacity = '1';
+            setTimeout(() => {
+                musicTooltip.style.opacity = '0';
+            }, 5000);
+        }, 1500);
+
+        // Music button hover events
+        musicBtn.addEventListener('mouseenter', () => {
+            musicTooltip.style.opacity = '1';
+        });
+        musicBtn.addEventListener('mouseleave', () => {
+            musicTooltip.style.opacity = '0';
+        });
+
+        musicBtn.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play().then(() => {
+                    equalizer.classList.add('is-playing');
+                    // Change bar color to emerald when active
+                    document.querySelectorAll('.music-bar').forEach(bar => {
+                        bar.classList.remove('bg-gray-500');
+                        bar.classList.add('bg-brand-accent');
+                    });
+                    musicStatusText.textContent = "暫停背景音樂";
+                }).catch(err => {
+                    console.log("Audio play prevented: user interaction required.", err);
+                });
+            } else {
+                bgMusic.pause();
+                equalizer.classList.remove('is-playing');
+                document.querySelectorAll('.music-bar').forEach(bar => {
+                    bar.classList.remove('bg-brand-accent');
+                    bar.classList.add('bg-gray-500');
+                });
+                musicStatusText.textContent = "播放背景音樂";
+            }
+        });
+
+        // Client category Filter
+        function filterClients(category) {
+            const items = document.querySelectorAll('.client-item');
+            const buttons = document.querySelectorAll('.client-tab-btn');
+
+            // Set styling active for selected button
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-500', 'text-white');
+                btn.classList.add('bg-gray-800', 'text-gray-400');
+            });
+
+            const activeBtn = document.getElementById('btn-' + category);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-gray-800', 'text-gray-400');
+                activeBtn.classList.add('bg-brand-500', 'text-white');
+            }
+
+            // Perform display filtration
+            items.forEach(item => {
+                if (category === 'all') {
+                    item.style.display = 'flex';
+                } else {
+                    const itemCat = item.getAttribute('data-cat');
+                    if (itemCat === category) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Quiz Logic
+        let currentStep = 1;
+        let totalScore = 0;
+
+        function selectAnswer(step, score) {
+            totalScore += score;
+            const currentStepEl = document.querySelector(`.quiz-step[data-step="${step}"]`);
+            
+            if (step < 5) {
+                // Advance step
+                currentStepEl.classList.add('hidden');
+                currentStep++;
+                const nextStepEl = document.querySelector(`.quiz-step[data-step="${currentStep}"]`);
+                nextStepEl.classList.remove('hidden');
+
+                // Update Progress bar width
+                const progressPercentage = (currentStep / 5) * 100;
+                document.getElementById('quiz-progress').style.width = `${progressPercentage}%`;
+            } else {
+                // Show final results
+                displayQuizResult();
+            }
+        }
+
+        function displayQuizResult() {
+            // Hide all steps and show result container
+            document.querySelectorAll('.quiz-step').forEach(step => step.classList.add('hidden'));
+            document.getElementById('quiz-progress').parentElement.classList.add('hidden');
+            
+            const resultBox = document.getElementById('quiz-result');
+            resultBox.classList.remove('hidden');
+
+            const scoreDisplay = document.getElementById('score-display');
+            const statusDisplay = document.getElementById('status-display');
+            const descDisplay = document.getElementById('desc-display');
+            const adviceDisplay = document.getElementById('advice-display');
+
+            // Map Score to specific maturity level & advice
+            // Max score is 20, min is 5.
+            scoreDisplay.textContent = totalScore + " / 20";
+
+            if (totalScore <= 8) {
+                statusDisplay.textContent = "AI 初始探索期 (等級一)";
+                statusDisplay.className = "text-red-400 font-extrabold";
+                descDisplay.textContent = "您的組織對 Generative AI 尚無正式評估與策略，同仁的使用主要屬於個人、零散、非正式探索。資安、防漏及治理架構尚未建立。";
+                adviceDisplay.innerHTML = "<strong>優先行動方針：</strong> 建議切入基礎<strong>「AI 應用識能基礎培訓」</strong>，提升全員對 GenAI 的正確認識與基礎操作技巧，防範核心資安漏洞。引入「AI365 工作流概念」幫助同仁發現日常可優化的流程痛點。";
+            } else if (totalScore <= 13) {
+                statusDisplay.textContent = "AI 團隊萌芽期 (等級二)";
+                statusDisplay.className = "text-brand-500 font-extrabold";
+                descDisplay.textContent = "您的團隊對 AI 工具具備基礎掌握，能主動撰寫與優化簡單公文或宣傳。但系統性成效衡量 (AI ROI) 或跨系統的 AI Agent 協同應用仍處於空白階段。";
+                adviceDisplay.innerHTML = "<strong>優先行動方針：</strong> 此階段的轉型痛點在於<strong>無法複製高手能力</strong>。建議導入<strong>「AI 模版與 YAML 規格驅動開發」</strong>，並引入 RAG 知識庫系統（如 NotebookLM）。這能大幅提高工作流穩定性，提升跨部門產能。";
+            } else if (totalScore <= 18) {
+                statusDisplay.textContent = "AI 深度賦能期 (等級三)";
+                statusDisplay.className = "text-brand-accent font-extrabold";
+                descDisplay.textContent = "您的組織對 AI 賦能具備系統性概念。特定部門已能獨立應用並在合規安全的前提下操作，甚至小有成效，但仍缺乏大規模 AI Agent 及 AI 治理 (Governance) 自動化閉環。";
+                adviceDisplay.innerHTML = "<strong>優先行動方針：</strong> 建議實施<strong>「企業級 AI Agentic Workflow 自動化改造」</strong>，讓 AI 代理在多系統、多場景中自主運算並防堵偏誤，同時全面建立合規的 AI 安全政策，與 CompTIA Security AI+ 標準靠攏，保障智慧資產。";
+            } else {
+                statusDisplay.textContent = "AI365 閉環模範期 (等級四)";
+                statusDisplay.className = "text-brand-cyanAccent font-extrabold";
+                descDisplay.textContent = "恭喜！您的組織充分擁抱人機協同理念。各部門已全面對接 AI 工作流、具備嚴謹的 AI 治理與資訊安全機制、且對 ROI 具備明確、可量化的衡量指標。";
+                adviceDisplay.innerHTML = "<strong>優先行動方針：</strong> 建議將您的成熟模型轉化為外部可共享的「雲端資產」或內部「創新營運事業」。持續關注最新的多智能體 (Multi-Agent System) 演進與前沿 Vibe Coding 的高度協作開發，維持業界不敗領先。";
+            }
+        }
+
+        function resetQuiz() {
+            currentStep = 1;
+            totalScore = 0;
+            document.getElementById('quiz-result').classList.add('hidden');
+            
+            const progressWrapper = document.getElementById('quiz-progress').parentElement;
+            progressWrapper.classList.remove('hidden');
+            document.getElementById('quiz-progress').style.width = "20%";
+
+            document.querySelectorAll('.quiz-step').forEach(step => step.classList.add('hidden'));
+            document.querySelector('.quiz-step[data-step="1"]').classList.remove('hidden');
+        }
+
+        // Form submission Simulation
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const msgBox = document.getElementById('form-msg');
+
+            // Simple styling change
+            msgBox.classList.remove('hidden', 'bg-red-500/10', 'text-red-400', 'bg-brand-accent/10', 'text-brand-accent');
+            msgBox.classList.add('bg-brand-accent/10', 'text-brand-accent');
+            msgBox.innerHTML = `<i class="fa-solid fa-circle-check"></i> 感謝您，<strong>${name}</strong>。諮詢請求已順利排入隊列！楊老師團隊將於 24 小時內聯絡您的信箱：<strong>${email}</strong>。`;
+
+            // Clear Form
+            document.getElementById('consultation-form').reset();
+        }
+    </script>
+</body>
+</html>
