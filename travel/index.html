@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>春節推薦景點 - 3D 柔和版</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+        
+        body { 
+            font-family: 'Noto Sans TC', sans-serif; 
+            background: linear-gradient(135deg, #fff5f5 0%, #fff9f0 100%);
+        }
+
+        /* 3D 效果容器 */
+        .perspective-container {
+            perspective: 1000px;
+        }
+
+        /* 3D 卡片基礎樣式 */
+        .stereo-card {
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease;
+            transform-style: preserve-3d;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 182, 193, 0.3);
+        }
+
+        /* 懸停時的 3D 旋轉與陰影 */
+        .perspective-container:hover .stereo-card {
+            transform: rotateX(8deg) rotateY(-8deg) translateZ(15px);
+            box-shadow: 25px 25px 50px rgba(255, 182, 193, 0.2), 
+                        -5px -5px 20px rgba(255, 255, 255, 0.9);
+        }
+
+        /* 卡片內容的深度感 */
+        .card-content {
+            transform: translateZ(30px);
+        }
+
+        .soft-gradient-header {
+            background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+        }
+
+        .pagination-btn-active {
+            background-color: #ff8e9e;
+            color: white;
+            box-shadow: 0 4px 12px rgba(255, 142, 158, 0.4);
+        }
+
+        /* 按鈕發光效果 */
+        .btn-glow {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-gray-700">
+
+    <!-- 柔和標題區 -->
+    <header class="soft-gradient-header py-16 mb-12 shadow-sm relative overflow-hidden">
+        <!-- 裝飾用圓圈 -->
+        <div class="absolute top-[-10%] left-[-5%] w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-[-10%] right-[-5%] w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-md">🌸 春節推薦景點 🌸</h1>
+            <p class="text-white/90 text-lg tracking-widest font-light mb-8">分享過年好去處，收藏春天的美好</p>
+            
+            <!-- 「我也要推薦」按鈕 -->
+            <a href="#" target="_blank" class="inline-flex items-center px-8 py-3 bg-white text-pink-400 font-bold rounded-full btn-glow transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+                我也要推薦
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 pb-20">
+        
+        <!-- 工具列 -->
+        <div class="bg-white/70 backdrop-blur-lg rounded-3xl p-6 mb-12 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 border border-white/50">
+            <div class="relative w-full md:w-96">
+                <input type="text" id="searchInput" placeholder="搜尋景點、推薦人或理由..." 
+                    class="w-full pl-12 pr-4 py-3 bg-white border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-200 outline-none transition shadow-inner">
+                <div class="absolute left-4 top-3.5 text-pink-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+            </div>
+            <div id="dataInfo" class="text-pink-400 font-medium bg-pink-50/50 px-6 py-2 rounded-full border border-pink-100">
+                正在同步最新推薦...
+            </div>
+        </div>
+
+        <!-- 景點卡片容器 -->
+        <div id="cardGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- 3D 卡片由 JS 動態生成 -->
+        </div>
+
+        <!-- 載入中動畫 -->
+        <div id="loader" class="flex flex-col items-center justify-center py-24">
+            <div class="w-12 h-12 border-4 border-pink-100 border-t-pink-400 rounded-full animate-spin mb-4"></div>
+            <p class="text-pink-300 animate-pulse">精選內容準備中...</p>
+        </div>
+
+        <!-- 空狀態提示 -->
+        <div id="emptyState" class="hidden py-24 text-center">
+            <div class="text-6xl mb-4">🏮</div>
+            <p class="text-gray-400 text-xl">目前還沒有相關推薦唷！</p>
+        </div>
+
+        <!-- 分頁導覽 -->
+        <div id="pagination" class="flex justify-center items-center mt-16 gap-3">
+        </div>
+
+    </main>
+
+    <script>
+        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQvks6LPgaynKVbv-F5TprMsa9_dvrqORODLUyiGAWuZgzBC3H-a7UAe8avZJLjniRhgmDf723TmCk2/pub?gid=1527915742&single=true&output=csv';
+        
+        let rawData = [];
+        let filteredData = [];
+        let currentPage = 1;
+        const itemsPerPage = 6;
+
+        async function loadData() {
+            try {
+                const response = await fetch(CSV_URL);
+                const csvText = await response.text();
+                
+                Papa.parse(csvText, {
+                    header: true,
+                    skipEmptyLines: true,
+                    complete: (results) => {
+                        rawData = results.data;
+                        filteredData = [...rawData];
+                        updateDisplay();
+                        document.getElementById('loader').classList.add('hidden');
+                    }
+                });
+            } catch (error) {
+                document.getElementById('dataInfo').innerText = "連線失敗，請檢查資料來源。";
+            }
+        }
+
+        function updateDisplay() {
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageData = filteredData.slice(startIndex, endIndex);
+
+            renderCards(pageData);
+            renderPagination();
+            
+            document.getElementById('dataInfo').innerText = `🌸 目前共有 ${filteredData.length} 個精選推薦`;
+        }
+
+        // 判斷是否應顯示女生圖卡的邏輯
+        function getAvatarUrl(name) {
+            const n = name.toLowerCase();
+            // 判斷關鍵字：Mary, 小姐, 女, 或是常見的女生名字尾字
+            const isFemale = n.includes('mary') || n.includes('小姐') || n.includes('女') || n.includes('美') || n.includes('雅') || n.includes('婷');
+            
+            if (isFemale) {
+                // 使用 lorelei 系列 (風格較女性化)
+                return `https://api.dicebear.com/7.x/lorelei/svg?seed=${encodeURIComponent(name)}`;
+            } else {
+                // 使用原本的 notionists 系列 (中性插畫風格)
+                return `https://api.dicebear.com/7.x/notionists/svg?seed=${encodeURIComponent(name)}`;
+            }
+        }
+
+        function renderCards(data) {
+            const grid = document.getElementById('cardGrid');
+            grid.innerHTML = '';
+            
+            if (data.length === 0) {
+                document.getElementById('emptyState').classList.remove('hidden');
+                return;
+            }
+            document.getElementById('emptyState').classList.add('hidden');
+
+            data.forEach((item) => {
+                const name = item['推薦人名字'] || item['推薦人'] || item['姓名'] || Object.values(item)[0] || "好友推薦";
+                const spot = item['推薦景點'] || item['景點名稱'] || item['地點'] || Object.values(item)[1] || "精選祕境";
+                const reason = item['理由'] || item['推薦理由'] || item['備註'] || item['備註欄位'] || Object.values(item)[2] || "這是一個適合過年走春的好地方，氣氛放鬆且風景優美。";
+                
+                const avatar = getAvatarUrl(name);
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'perspective-container h-full';
+                
+                wrapper.innerHTML = `
+                    <div class="stereo-card rounded-[2.5rem] p-8 h-full flex flex-col items-center text-center shadow-xl shadow-pink-100/40">
+                        <div class="card-content w-full">
+                            <!-- 頭像與裝飾 -->
+                            <div class="relative w-24 h-24 mb-6 mx-auto">
+                                <div class="absolute inset-0 bg-pink-100 rounded-[2.2rem] rotate-6 opacity-50"></div>
+                                <div class="relative w-full h-full rounded-[2.2rem] overflow-hidden bg-white border-4 border-white shadow-sm">
+                                    <img src="${avatar}" alt="${name}" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            
+                            <!-- 推薦人名稱標籤 -->
+                            <div class="inline-block px-4 py-1.5 bg-pink-50 text-pink-400 rounded-full text-xs font-bold mb-4 border border-pink-100">
+                                ✨ ${name} 的私藏分享
+                            </div>
+                            
+                            <!-- 景點名稱 -->
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 px-2 leading-tight">${spot}</h3>
+                            
+                            <!-- 備註/理由 -->
+                            <div class="bg-gray-50/50 rounded-2xl p-4 text-gray-500 text-sm leading-relaxed text-left min-h-[110px] border border-gray-100 flex flex-col">
+                                <span class="text-pink-200 text-2xl font-serif leading-none mb-1">“</span>
+                                <p class="flex-grow">${reason}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(wrapper);
+            });
+        }
+
+        function renderPagination() {
+            const nav = document.getElementById('pagination');
+            nav.innerHTML = '';
+            const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+            
+            if (totalPages <= 1) return;
+
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.className = `w-12 h-12 rounded-2xl font-bold transition-all duration-300 ${
+                    currentPage === i 
+                    ? 'pagination-btn-active' 
+                    : 'bg-white text-gray-400 hover:bg-pink-50 hover:text-pink-400 shadow-sm'
+                }`;
+                btn.onclick = () => {
+                    currentPage = i;
+                    updateDisplay();
+                    window.scrollTo({ top: 400, behavior: 'smooth' });
+                };
+                nav.appendChild(btn);
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            filteredData = rawData.filter(item => 
+                Object.values(item).some(val => String(val).toLowerCase().includes(term))
+            );
+            currentPage = 1;
+            updateDisplay();
+        });
+
+        window.onload = loadData;
+    </script>
+</body>
+</html>
