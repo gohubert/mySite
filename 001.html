@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI365 Gallery｜LE-001 楊老師 攝影與美學展記</title>
+  <!-- Google Fonts: Noto Serif TC, Inter, Cinzel for editorial typographic hierarchy -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'serif'],
+            display: ['Cinzel', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            champagne: {
+              300: '#EBDCB9',
+              400: '#DFC285',
+              500: '#C9A86A',
+              600: '#B08E4F',
+              700: '#8C6C32',
+            },
+            noir: {
+              900: '#111215',
+              800: '#1E2024',
+              700: '#2C2F36',
+            }
+          },
+          spacing: {
+            '28': '7rem',
+            '32': '8rem',
+            '36': '9rem',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #FAFAFA;
+      color: #1A1A1A;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-editorial-title {
+      font-family: 'Noto Serif TC', serif;
+      letter-spacing: -0.02em;
+    }
+    .font-numeral {
+      font-family: 'Cinzel', serif;
+      font-feature-settings: "tnum" 1;
+    }
+    /* Smooth image zoom effect for editorial atmosphere */
+    .img-editorial {
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .img-editorial-wrap:hover .img-editorial {
+      transform: scale(1.035);
+    }
+    /* Elegant custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAFAFA;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D4D4D8;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #A1A1AA;
+    }
+  </style>
+</head>
+<body class="selection:bg-champagne-300 selection:text-noir-900">
+
+  <!-- Minimalist Editorial Navigation Header -->
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-neutral-100">
+    <div class="max-w-[1320px] mx-auto px-6 sm:px-10 h-20 sm:h-24 flex items-center justify-between">
+      <a href="#" class="flex flex-col group">
+        <span class="font-display text-lg tracking-[0.22em] text-noir-900 font-semibold group-hover:text-champagne-600 transition-colors">AI365 GALLERY</span>
+        <span class="text-[10px] tracking-[0.35em] text-neutral-400 uppercase font-sans">LE-001 Editorial Portfolio</span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-10 text-xs tracking-[0.2em] uppercase font-sans text-neutral-600">
+        <a href="#about" class="hover:text-champagne-600 transition-colors duration-200">關於楊老師</a>
+        <a href="#philosophy" class="hover:text-champagne-600 transition-colors duration-200">教學思維</a>
+        <a href="#metrics" class="hover:text-champagne-600 transition-colors duration-200">影響力實證</a>
+        <a href="#gallery" class="hover:text-champagne-600 transition-colors duration-200">講壇藝廊</a>
+      </nav>
+
+      <a href="#contact" class="hidden sm:inline-flex items-center px-5 py-2.5 text-[11px] tracking-[0.2em] uppercase font-medium border border-noir-900 text-noir-900 hover:bg-noir-900 hover:text-white transition-all duration-300 rounded-sm">
+        預約演講・諮詢
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 
+      規範一：全螢幕寬度的橫幅攝影照片 (Full-Bleed Hero Image)，高度約為視窗的 65%–80%。
+      主視覺文字直接疊加於照片中央，深色半透明漸層確保文字清晰。維持自然比例，使用 object-fit: cover。
+    -->
+    <section class="relative w-full h-[76vh] min-h-[560px] max-h-[860px] overflow-hidden pt-20 sm:pt-24 select-none">
+      <div class="absolute inset-0 w-full h-full">
+        <!-- High-res authentic keynote photography representing AI365 Teacher Yang -->
+        <img 
+          src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=2400&q=85" 
+          alt="AI365 楊老師 於人工智慧前瞻趨勢峰會主講現場"
+          class="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.03]"
+          loading="eager"
+          onerror="this.src='https://placehold.co/1920x1080/1A1A1A/FFFFFF?text=AI365+Keynote+Photography'"
+        />
+        <!-- Editorial dark gradient overlay for optimal typography contrast -->
+        <div class="absolute inset-0 bg-gradient-to-t from-noir-900/80 via-noir-900/40 to-noir-900/30"></div>
+      </div>
+
+      <!-- Hero Centered Typography Overlay -->
+      <div class="relative z-10 h-full max-w-[1240px] mx-auto px-6 sm:px-10 flex flex-col items-center justify-center text-center text-white">
+        <p class="font-sans text-xs sm:text-sm tracking-[0.4em] uppercase text-champagne-300 mb-4 opacity-95">
+          AI365 Executive Masterclass · LE-001
+        </p>
+        <h1 class="font-editorial-title text-3xl sm:text-5xl md:text-6xl font-light tracking-wide leading-tight max-w-4xl mb-6">
+          智能科技的宏觀視野，<br class="hidden sm:inline">以人為本的啟迪之光
+        </h1>
+        <p class="font-sans font-light text-neutral-200 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed tracking-wider opacity-90">
+          深耕 AI 人工智慧教學與企業賦能 · 楊老師的思考、演講與現場紀錄
+        </p>
+        <div class="mt-8 flex items-center space-x-3 text-[11px] tracking-[0.3em] uppercase text-neutral-300">
+          <span class="w-8 h-[1px] bg-champagne-400"></span>
+          <span>Photography-First Edition</span>
+          <span class="w-8 h-[1px] bg-champagne-400"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+      規範二 & 三：主要介紹區採用不對稱雙欄排版：左側文字約 40%，右側照片約 60%。
+      桌面版主要內容區塊上下留白 100–140px (py-28 to py-36)，最大寬度 1280px。
+      文字區塊採垂直置中，圖文之間保留 64–96px 水平間距。
+    -->
+    <section id="about" class="py-24 md:py-32 lg:py-36 bg-white">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          
+          <!-- Left Column: 40% Text Area (5 cols in 12 cols = 41.6%) -->
+          <div class="lg:col-span-5 flex flex-col justify-center">
+            <span class="text-xs uppercase tracking-[0.25em] text-champagne-600 font-semibold mb-3">
+              About Instructor Yang
+            </span>
+            <h2 class="font-editorial-title text-2xl sm:text-4xl text-noir-900 font-normal leading-snug mb-8">
+              解構複雜演算法，<br>轉譯為觸手可及的思維力量
+            </h2>
+            <div class="space-y-6 text-neutral-600 font-sans text-sm sm:text-base leading-relaxed tracking-wide font-light">
+              <p>
+                在生成式 AI 與深度科技重塑產業的巨浪中，楊老師始終秉持「技術應當為人賦能」的核心哲學。十年來走訪超過百家跨國企業與頂尖院校，致力將深奧艱澀的模型原理，轉化為直觀實踐的決策工具。
+              </p>
+              <p>
+                從大型專題講座到小組敏捷工作坊，楊老師以獨樹一幟的沉穩風格與啟發式對話，引導學員在混沌未知中建立篤定的前瞻思維架構。
+              </p>
+            </div>
+            
+            <div class="pt-8 border-t border-neutral-100 mt-8 flex items-center space-x-6">
+              <div>
+                <p class="font-display text-xs tracking-widest text-neutral-400 uppercase">Focus Areas</p>
+                <p class="text-xs text-noir-900 font-medium tracking-wider mt-1">Generative AI · Strategic Decision · Human-AI Co-creation</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: 60% Image Area (7 cols in 12 cols = 58.3%) -->
+          <!-- 建議使用 4:3 或 3:2 比例，保留乾淨的留白與細緻收邊 -->
+          <div class="lg:col-span-7">
+            <div class="img-editorial-wrap relative overflow-hidden bg-neutral-100 shadow-sm rounded-sm aspect-[4/3] sm:aspect-[3/2] lg:aspect-[4/3]">
+              <img 
+                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=85" 
+                alt="AI365 楊老師 專注指導企業決策者實戰操作" 
+                class="img-editorial w-full h-full object-cover object-center"
+                loading="lazy"
+                onerror="this.src='https://placehold.co/1200x900/E5E5E5/1A1A1A?text=楊老師教學指導現場'"
+              />
+              <div class="absolute bottom-4 left-5 bg-noir-900/60 backdrop-blur-sm px-3 py-1.5 text-[11px] text-white/90 tracking-wider">
+                Photo: 臺北企業領袖實務研討會現場實況
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+      規範二：相鄰區塊交替使用「左圖右文」，建立雜誌式編輯節奏。
+      大面積留白設計：上下 100–140px，標題與內文保留 24–32px，圖文水平保留 64–96px。
+    -->
+    <section id="philosophy" class="py-24 md:py-32 lg:py-36 bg-neutral-50/60 border-y border-neutral-200/40">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          
+          <!-- Left Column: 60% Image Area (7 cols) -->
+          <div class="lg:col-span-7 order-2 lg:order-1">
+            <div class="img-editorial-wrap relative overflow-hidden bg-neutral-200 shadow-sm rounded-sm aspect-[3/2]">
+              <img 
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=85" 
+                alt="楊老師主持 AI 創新工作坊小組腦力激盪" 
+                class="img-editorial w-full h-full object-cover object-center"
+                loading="lazy"
+                onerror="this.src='https://placehold.co/1200x800/E5E5E5/1A1A1A?text=AI+創新工作坊現場'"
+              />
+              <div class="absolute bottom-4 left-5 bg-noir-900/60 backdrop-blur-sm px-3 py-1.5 text-[11px] text-white/90 tracking-wider">
+                Photo: 人機協作原型設計工作坊現場
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: 40% Text Area (5 cols) -->
+          <div class="lg:col-span-5 order-1 lg:order-2 flex flex-col justify-center">
+            <span class="text-xs uppercase tracking-[0.25em] text-champagne-600 font-semibold mb-3">
+              Teaching Philosophy
+            </span>
+            <h2 class="font-editorial-title text-2xl sm:text-4xl text-noir-900 font-normal leading-snug mb-8">
+              不追求虛幻炫技，<br>專注落地的系統性解方
+            </h2>
+            <div class="space-y-6 text-neutral-600 font-sans text-sm sm:text-base leading-relaxed tracking-wide font-light">
+              <p>
+                「AI 不會取代創作者，但深諳 AI 的思考者將引領下一個世代。」楊老師於每堂課堂中強調批判性思考與系統構建，反對盲目背誦指令模板。
+              </p>
+              <p>
+                透過深度互動的實戰情境模擬，引導每位學員建立自己專屬的工作流。在白板與螢幕的交互辯證間，學會看清數據本質，重塑工作維度。
+              </p>
+            </div>
+
+            <div class="mt-8 flex items-center space-x-4">
+              <span class="h-px w-10 bg-neutral-300"></span>
+              <p class="text-xs text-neutral-500 tracking-widest font-sans uppercase">
+                Curated Methodologies · 365 Days Continuous Evolution
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+      規範四：數據展示區使用大型香檳金數字，搭配簡潔說明，避免使用厚重卡片背景，創造視覺呼吸感。
+      上下大留白：py-24 to py-32。
+    -->
+    <section id="metrics" class="py-24 md:py-32 bg-white">
+      <div class="max-w-[1240px] mx-auto px-6 sm:px-10">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16 md:mb-20">
+          <span class="text-xs uppercase tracking-[0.25em] text-champagne-600 font-semibold block mb-3">
+            Impact in Numbers
+          </span>
+          <h2 class="font-editorial-title text-2xl sm:text-3xl text-noir-900 font-normal">
+            數字背後的實踐厚度
+          </h2>
+          <div class="w-12 h-px bg-champagne-400 mx-auto mt-5"></div>
+        </div>
+
+        <!-- Minimalist Number Grid without heavy cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 text-center divide-y sm:divide-y-0 lg:divide-x divide-neutral-100">
+          
+          <div class="pt-6 sm:pt-0 px-4">
+            <div class="font-numeral text-4xl sm:text-5xl lg:text-6xl font-light text-champagne-500 mb-3 tracking-tight">
+              360<span class="text-2xl font-serif text-champagne-600">+</span>
+            </div>
+            <p class="font-sans text-xs tracking-[0.18em] uppercase text-neutral-400 mb-1">Keynote Lectures</p>
+            <p class="font-editorial-title text-sm text-noir-900">大型專題與企業研討演講</p>
+          </div>
+
+          <div class="pt-6 sm:pt-0 px-4">
+            <div class="font-numeral text-4xl sm:text-5xl lg:text-6xl font-light text-champagne-500 mb-3 tracking-tight">
+              15,000<span class="text-2xl font-serif text-champagne-600">+</span>
+            </div>
+            <p class="font-sans text-xs tracking-[0.18em] uppercase text-neutral-400 mb-1">Participants</p>
+            <p class="font-editorial-title text-sm text-noir-900">深度受惠專業決策與從業人員</p>
+          </div>
+
+          <div class="pt-6 sm:pt-0 px-4">
+            <div class="font-numeral text-4xl sm:text-5xl lg:text-6xl font-light text-champagne-500 mb-3 tracking-tight">
+              85<span class="text-2xl font-serif text-champagne-600">%</span>
+            </div>
+            <p class="font-sans text-xs tracking-[0.18em] uppercase text-neutral-400 mb-1">Enterprise Adoption</p>
+            <p class="font-editorial-title text-sm text-noir-900">課後內部工作流有效導入率</p>
+          </div>
+
+          <div class="pt-6 sm:pt-0 px-4">
+            <div class="font-numeral text-4xl sm:text-5xl lg:text-6xl font-light text-champagne-500 mb-3 tracking-tight">
+              9.9<span class="text-2xl font-serif text-champagne-600">/10</span>
+            </div>
+            <p class="font-sans text-xs tracking-[0.18em] uppercase text-neutral-400 mb-1">Satisfaction Score</p>
+            <p class="font-editorial-title text-sm text-noir-900">跨界學員綜合真實好評指標</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 
+      規範二：藝廊區採用 2–3 欄大型圖片卡片，保持一致的影像比例與排列間距。
+      規範三：大型照片周圍應保留乾淨的白色空間，營造精品攝影畫冊的展示效果。
+    -->
+    <section id="gallery" class="py-24 md:py-32 lg:py-36 bg-neutral-50/50 border-t border-neutral-200/50">
+      <div class="max-w-[1320px] mx-auto px-6 sm:px-10">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-20">
+          <div>
+            <span class="text-xs uppercase tracking-[0.25em] text-champagne-600 font-semibold block mb-3">
+              Editorial Gallery
+            </span>
+            <h2 class="font-editorial-title text-2xl sm:text-4xl text-noir-900 font-normal">
+              光影紀實・課堂與舞台瞬間
+            </h2>
+          </div>
+          <p class="font-sans text-xs sm:text-sm text-neutral-500 tracking-wider mt-4 md:mt-0 max-w-md">
+            LE-001 影像典藏系列，真實紀錄楊老師走訪科技重鎮、學術講堂與實務論壇的思維軌跡。
+          </p>
+        </div>
+
+        <!-- 3-Column Large Image Gallery with Consistent 16:10 / 4:3 ratios and ample gaps -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          
+          <!-- Card 1 -->
+          <div class="group flex flex-col">
+            <div class="img-editorial-wrap relative overflow-hidden bg-neutral-200 aspect-[4/3] rounded-sm mb-5 shadow-sm">
+              <img 
+                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1000&q=85" 
+                alt="AI365 楊老師 專案研討室中精準解答學員困惑" 
+                class="img-editorial w-full h-full object-cover object-center"
+                loading="lazy"
+                onerror="this.src='https://placehold.co/800x600/E5E5E5/1A1A1A?text=楊老師研討會紀實'"
+              />
+            </div>
+            <div class="px-1">
+              <span class="text-[11px] tracking-[0.2em] font-sans uppercase text-champagne-600 block mb-1">01 / Mastermind</span>
+              <h3 class="font-editorial-title text-lg text-noir-900 font-medium mb-1">敏捷實踐與微觀診斷</h3>
+              <p class="text-xs text-neutral-500 font-light leading-relaxed">
+                在為期三天的密集工作坊中，逐一拆解團隊現有流程，導入自定義 Prompt 與模型鏈。
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="group flex flex-col">
+            <div class="img-editorial-wrap relative overflow-hidden bg-neutral-200 aspect-[4/3] rounded-sm mb-5 shadow-sm">
+              <img 
+                src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1000&q=85" 
+                alt="千人演講廳中闡述 AI 驅動思維" 
+                class="img-editorial w-full h-full object-cover object-center"
+                loading="lazy"
+                onerror="this.src='https://placehold.co/800x600/E5E5E5/1A1A1A?text=千人演講廳演講現場'"
+              />
+            </div>
+            <div class="px-1">
+              <span class="text-[11px] tracking-[0.2em] font-sans uppercase text-champagne-600 block mb-1">02 / Grand Stage</span>
+              <h3 class="font-editorial-title text-lg text-noir-900 font-medium mb-1">國際科技趨勢主峰會</h3>
+              <p class="text-xs text-neutral-500 font-light leading-relaxed">
+                面對產業先進發表「跨越智能斷層」年度主題演講，深入解析未來五年的技術轉向。
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="group flex flex-col">
+            <div class="img-editorial-wrap relative overflow-hidden bg-neutral-200 aspect-[4/3] rounded-sm mb-5 shadow-sm">
+              <img 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=85" 
+                alt="楊老師與核心研發團隊共創會議" 
+                class="img-editorial w-full h-full object-cover object-center"
+                loading="lazy"
+                onerror="this.src='https://placehold.co/800x600/E5E5E5/1A1A1A?text=研發團隊共創討論'"
+              />
+            </div>
+            <div class="px-1">
+              <span class="text-[11px] tracking-[0.2em] font-sans uppercase text-champagne-600 block mb-1">03 / Laboratory</span>
+              <h3 class="font-editorial-title text-lg text-noir-900 font-medium mb-1">人機共創實驗室內部紀錄</h3>
+              <p class="text-xs text-neutral-500 font-light leading-relaxed">
+                與多領域學者及青年研究員測試前瞻開源模型，探尋下一代智慧應用的落地可能。
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 沉浸式寬幅留白展示：以攝影建立情緒，以留白建立質感 -->
+    <section class="py-20 md:py-28 bg-white overflow-hidden">
+      <div class="max-w-[1280px] mx-auto px-6 sm:px-10">
+        
+        <div class="relative w-full aspect-[21/9] sm:aspect-[2.4/1] rounded-sm overflow-hidden shadow-sm">
+          <img 
+            src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=2000&q=85" 
+            alt="AI365 楊老師 授課沉思剪影" 
+            class="w-full h-full object-cover object-center filter brightness-[0.88]"
+            loading="lazy"
+            onerror="this.src='https://placehold.co/1800x750/222222/FFFFFF?text=AI365+Atmospheric+Moment'"
+          />
+          <div class="absolute inset-0 bg-gradient-to-r from-noir-900/70 via-noir-900/30 to-transparent flex items-center p-8 sm:p-14 lg:p-20">
+            <div class="max-w-xl text-white">
+              <span class="font-display text-champagne-300 text-xs tracking-[0.3em] uppercase block mb-3">Guiding Principle</span>
+              <blockquote class="font-editorial-title text-xl sm:text-2xl md:text-3xl font-light leading-relaxed">
+                「最高階的科技教育，不是展示工具多強大，而是讓人重新找回提問的勇氣與洞察。」
+              </blockquote>
+              <p class="mt-4 text-xs font-sans tracking-widest text-neutral-300 uppercase">—— AI365 楊老師</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="py-24 md:py-32 bg-neutral-900 text-white">
+      <div class="max-w-[1240px] mx-auto px-6 sm:px-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          
+          <div class="lg:col-span-6 flex flex-col justify-center">
+            <span class="text-xs uppercase tracking-[0.25em] text-champagne-400 font-semibold mb-3">
+              Collaboration & Inquiries
+            </span>
+            <h2 class="font-editorial-title text-3xl sm:text-4xl font-light leading-snug mb-6">
+              邀請楊老師共同策劃<br>您的下一場智慧轉型旅程
+            </h2>
+            <p class="text-neutral-400 font-light text-sm sm:text-base leading-relaxed tracking-wide mb-8">
+              我們提供企業專屬內訓、國際大會 Keynote 專題演講、以及高階決策層的 AI 戰略諮詢方案。歡迎填寫需求，我們將於 48 小時內由專人主動與您接洽。
+            </p>
+            
+            <div class="space-y-4 text-xs tracking-wider text-neutral-400">
+              <p class="flex items-center space-x-3">
+                <span class="text-champagne-400 font-mono">LOCATION:</span>
+                <span>Taipei · Singapore · Tokyo · Worldwide Hybrid</span>
+              </p>
+              <p class="flex items-center space-x-3">
+                <span class="text-champagne-400 font-mono">SPEC:</span>
+                <span>LE-001 Editorial Photography & Curated Series</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 flex items-center">
+            <!-- Modern Minimal Inquiry Box -->
+            <form id="inquiryForm" class="w-full bg-noir-800/80 p-8 sm:p-12 border border-neutral-800 rounded-sm space-y-6">
+              <div>
+                <label class="block text-[11px] tracking-[0.2em] uppercase text-neutral-300 mb-2">貴單位名稱 / 姓名</label>
+                <input type="text" name="name" required placeholder="例如：領航科技股份有限公司 / 林執行長" class="w-full px-4 py-3 bg-neutral-900/90 border border-neutral-700 text-sm text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-champagne-400 transition-colors">
+              </div>
+
+              <div>
+                <label class="block text-[11px] tracking-[0.2em] uppercase text-neutral-300 mb-2">聯絡電子郵件</label>
+                <input type="email" name="email" required placeholder="contact@company.com" class="w-full px-4 py-3 bg-neutral-900/90 border border-neutral-700 text-sm text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-champagne-400 transition-colors">
+              </div>
+
+              <div>
+                <label class="block text-[11px] tracking-[0.2em] uppercase text-neutral-300 mb-2">合作類型意向</label>
+                <select name="serviceType" class="w-full px-4 py-3 bg-neutral-900/90 border border-neutral-700 text-sm text-neutral-200 focus:outline-none focus:border-champagne-400 transition-colors">
+                  <option value="大會主題演講 (Keynote Speech)">大會主題演講 (Keynote Speech)</option>
+                  <option value="企業主管 AI 策略內訓 (Executive Workshop)">企業主管 AI 策略內訓 (Executive Workshop)</option>
+                  <option value="顧問輔導與轉型諮詢 (Strategic Advisory)">顧問輔導與轉型諮詢 (Strategic Advisory)</option>
+                  <option value="媒體專訪與學術座談 (Media & Panel)">媒體專訪與學術座談 (Media & Panel)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-[11px] tracking-[0.2em] uppercase text-neutral-300 mb-2">需求簡述</label>
+                <textarea name="message" rows="3" placeholder="請簡述預計舉辦之時間、受眾規模與期望核心效益..." class="w-full px-4 py-3 bg-neutral-900/90 border border-neutral-700 text-sm text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-champagne-400 transition-colors"></textarea>
+              </div>
+
+              <button id="submitBtn" type="submit" class="w-full py-3.5 bg-champagne-500 hover:bg-champagne-600 text-noir-900 font-medium text-xs tracking-[0.25em] uppercase transition-colors duration-200 rounded-sm">
+                送出預約諮詢需求
+              </button>
+              
+              <!-- Status feedback box -->
+              <div id="formFeedback" class="hidden p-3 text-xs text-center transition-all"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Minimalist Editorial Footer -->
+  <footer class="bg-black text-neutral-500 py-14 border-t border-neutral-900">
+    <div class="max-w-[1320px] mx-auto px-6 sm:px-10 flex flex-col sm:flex-row items-center justify-between text-xs tracking-wider space-y-4 sm:space-y-0">
+      <div>
+        <span class="font-display tracking-[0.2em] text-neutral-300 font-semibold">AI365</span>
+        <span class="mx-2">·</span>
+        <span>LE-001 攝影版位與留白設計規範體系</span>
+      </div>
+      <div class="text-neutral-500">
+        © 2026 AI365 Teacher Yang. All rights reserved. 攝影主導 · 留白至簡
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 已正式綁定您的 Google Apps Script Web App URL
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzCpCVEeeDVOF7kbV8ZKxF99kI9Ai5d9YRXTH9RYWCl-8Eb7dcjZ2-dRYCQH2_KnfH7zA/exec";
+
+    const inquiryForm = document.getElementById('inquiryForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const feedback = document.getElementById('formFeedback');
+
+    inquiryForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      // 按鈕載入中狀態
+      submitBtn.disabled = true;
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = "正在傳送預約需求...";
+      submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+
+      feedback.className = "p-3 bg-champagne-900/30 border border-champagne-500/20 text-champagne-200 text-xs text-center";
+      feedback.textContent = "正在寫入預約名單...";
+      feedback.classList.remove('hidden');
+
+      const formData = new FormData(inquiryForm);
+      const params = new URLSearchParams();
+      formData.forEach((value, key) => {
+        params.append(key, value);
+      });
+
+      try {
+        // 使用 no-cors 模式確保請求穿透 Google Apps Script 重導向並成功傳送
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: params.toString()
+        });
+
+        // 成功提示
+        feedback.className = "p-3 bg-champagne-900/40 border border-champagne-500/30 text-champagne-300 text-xs text-center";
+        feedback.textContent = "預約需求已成功送出！楊老師助理團隊將於 48 小時內回覆。";
+        inquiryForm.reset();
+
+        setTimeout(() => {
+          feedback.classList.add('hidden');
+        }, 7000);
+
+      } catch (err) {
+        feedback.className = "p-3 bg-red-950/70 border border-red-500/50 text-red-300 text-xs text-center";
+        feedback.textContent = "傳送失敗，請稍後再試，或直接來信洽詢。";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+        submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+      }
+    });
+
+    // Header 捲動微陰影
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 40) {
+        header.classList.add('shadow-sm');
+      } else {
+        header.classList.remove('shadow-sm');
+      }
+    });
+  </script>
+</body>
+</html>
