@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>這週的星星怎麼說｜一週星座運勢</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#DCE3FF;
+  --sky-deep:#B9C6FF;
+  --paper:#FFFDF8;
+  --ink:#3B2A5A;
+  --ink-soft:#6E5F8C;
+  --pink:#FF8FBE;
+  --butter:#FFE27A;
+  --mint:#8EE3C8;
+  --line:#3B2A5A;
+  --chip:#FFFFFF;
+  --shadow:#3B2A5A;
+  --err:#D9476B;
+  color-scheme:light;
+  --round:"Zen Maru Gothic","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --num:"Baloo 2","Zen Maru Gothic",ui-rounded,system-ui,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --sky:#221B3D;--sky-deep:#2F2656;--paper:#2A2347;--ink:#F3ECFF;--ink-soft:#BFB2DD;
+    --pink:#FF8FBE;--butter:#FFD95A;--mint:#7FD9BC;--line:#0F0A1F;--chip:#352C5C;--shadow:#0F0A1F;--err:#FF7A9A;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --sky:#221B3D;--sky-deep:#2F2656;--paper:#2A2347;--ink:#F3ECFF;--ink-soft:#BFB2DD;
+  --pink:#FF8FBE;--butter:#FFD95A;--mint:#7FD9BC;--line:#0F0A1F;--chip:#352C5C;--shadow:#0F0A1F;--err:#FF7A9A;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;font-family:var(--round);color:var(--ink);line-height:1.7;
+  background:var(--sky);
+  background-image:radial-gradient(circle at 12% 18%, var(--sky-deep) 0 2px, transparent 3px),
+                   radial-gradient(circle at 78% 8%, var(--sky-deep) 0 3px, transparent 4px),
+                   radial-gradient(circle at 60% 40%, var(--sky-deep) 0 2px, transparent 3px);
+  background-size:180px 180px, 240px 240px, 300px 300px;
+}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 18px 56px}
+a{color:inherit}
+:focus-visible{outline:3px dashed var(--pink);outline-offset:3px}
+
+/* Header */
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:22px}
+h1{font-weight:900;font-size:clamp(2rem,5.5vw,3.3rem);line-height:1.15;margin:0;letter-spacing:.02em}
+h1 small{display:block;font-size:.42em;font-weight:700;color:var(--ink-soft);letter-spacing:.06em;margin-top:6px}
+.weekbadge{font-family:var(--num);font-weight:700;background:var(--butter);color:#3B2A5A;border:2.5px solid var(--line);
+  border-radius:999px;padding:6px 16px;box-shadow:3px 3px 0 var(--shadow);transform:rotate(-2deg);white-space:nowrap}
+
+/* Main grid */
+.top{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:26px;align-items:center}
+@media (max-width:820px){.top{grid-template-columns:1fr}}
+
+/* Zodiac wheel: the one memorable element */
+.wheel{position:relative;width:min(100%,440px);aspect-ratio:1;margin:0 auto}
+.ring{position:absolute;inset:9%;border-radius:50%;border:2.5px dashed var(--ink-soft);opacity:.55}
+.sticker{
+  --a:0deg;position:absolute;left:50%;top:50%;width:19%;aspect-ratio:1;margin:-9.5% 0 0 -9.5%;
+  transform:rotate(var(--a)) translateY(-205%) rotate(calc(-1 * var(--a)));
+  border-radius:50%;border:2.5px solid var(--line);background:var(--chip);color:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;
+  box-shadow:2px 3px 0 var(--shadow);font-family:var(--round);padding:0;
+  transition:background .15s, transform .2s;
+}
+.sticker .emo{font-size:clamp(1.1rem,3.4vw,1.55rem);line-height:1}
+.sticker .nm{font-size:clamp(.6rem,1.6vw,.74rem);font-weight:700;line-height:1.2;margin-top:2px}
+.sticker[aria-pressed="true"]{background:var(--pink);color:#3B2A5A;
+  transform:rotate(var(--a)) translateY(-205%) rotate(calc(-1 * var(--a))) scale(1.12)}
+.sun{position:absolute;left:50%;top:50%;width:0;height:0;transform:rotate(var(--sa,0deg))}
+.sun span{position:absolute;left:-14px;top:calc(-1 * min(205px, 41vw) - 14px);font-size:22px;
+  filter:drop-shadow(0 0 6px #FFC93C);transform:rotate(calc(-1 * var(--sa,0deg)))}
+.hub{position:absolute;inset:31%;border-radius:50%;background:var(--butter);border:2.5px solid var(--line);
+  box-shadow:4px 5px 0 var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#3B2A5A}
+.hub .big{font-size:clamp(2.2rem,8vw,3.4rem);line-height:1}
+.hub .zh{font-weight:900;font-size:clamp(1rem,3vw,1.3rem)}
+.hub .rg{font-family:var(--num);font-size:.82rem;font-weight:700;opacity:.8}
+
+/* Side panel */
+.side h2{font-size:1.5rem;margin:0 0 6px;font-weight:900}
+.note{background:var(--paper);border:2.5px solid var(--line);border-radius:22px 22px 22px 6px;padding:16px 18px;box-shadow:4px 4px 0 var(--shadow)}
+.sunfact{margin:0 0 14px}
+.sunfact b{font-family:var(--num)}
+.seg{display:inline-flex;border:2.5px solid var(--line);border-radius:999px;overflow:hidden;background:var(--chip);margin:6px 0 10px}
+.seg button{font:inherit;font-weight:700;font-size:.9rem;border:0;background:transparent;color:var(--ink);padding:6px 14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--mint);color:#3B2A5A}
+.seg button+button{border-left:2.5px solid var(--line)}
+details.adv{margin-top:6px;font-size:.9rem;color:var(--ink-soft)}
+details.adv input{width:100%;font:inherit;padding:7px 10px;border-radius:12px;border:2px solid var(--line);background:var(--chip);color:var(--ink);margin-top:6px}
+.btn{font:inherit;font-weight:900;background:var(--pink);color:#3B2A5A;border:2.5px solid var(--line);border-radius:999px;
+  padding:8px 20px;box-shadow:3px 3px 0 var(--shadow);cursor:pointer}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow)}
+
+/* Week strip */
+section{margin-top:40px}
+section > h2{font-size:1.45rem;font-weight:900;margin:0 0 14px}
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.days{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.day{font:inherit;color:var(--ink);background:var(--chip);border:2.5px solid var(--line);border-radius:18px;padding:10px 4px 8px;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:2px;box-shadow:2px 2px 0 var(--shadow)}
+.day .wd{font-weight:900}
+.day .dt{font-family:var(--num);font-weight:700;font-size:.9rem;color:var(--ink-soft)}
+.day .st{font-size:1.05rem;line-height:1}
+.day.today{background:var(--butter);color:#3B2A5A}
+.day.today .dt{color:#3B2A5A}
+.day[aria-pressed="true"]{outline:3px solid var(--pink);outline-offset:2px}
+.reading{margin-top:16px}
+.reading h3{margin:0 0 6px;font-size:1.1rem}
+.reading p{margin:0;max-width:70ch}
+.en{font-family:var(--round);}
+.muted{color:var(--ink-soft)}
+.err{color:var(--err);font-weight:700}
+
+/* Two columns */
+.cols{display:grid;grid-template-columns:1.4fr 1fr;gap:22px}
+@media (max-width:820px){.cols{grid-template-columns:1fr}}
+.lucky{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px}
+.lucky div{background:var(--sky);border-radius:14px;padding:8px 12px}
+.lucky dt{font-size:.82rem;color:var(--ink-soft);font-weight:700}
+.lucky dd{margin:0;font-family:var(--num);font-weight:800;font-size:1.1rem}
+
+/* Evidence */
+.tablewrap{overflow-x:auto;border:2.5px solid var(--line);border-radius:18px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:640px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1.5px dashed var(--ink-soft);vertical-align:top}
+th{background:var(--mint);color:#3B2A5A;font-weight:900}
+tr:last-child td{border-bottom:0}
+td code{font-size:.82rem;word-break:break-all}
+.ok{display:inline-block;padding:0 8px;border-radius:999px;background:var(--mint);color:#3B2A5A;font-weight:900;font-family:var(--num)}
+.ng{display:inline-block;padding:0 8px;border-radius:999px;background:var(--err);color:#fff;font-weight:900;font-family:var(--num)}
+pre{max-height:320px;overflow:auto;background:var(--chip);border:2px solid var(--line);border-radius:14px;padding:12px;font-size:.8rem;white-space:pre-wrap;word-break:break-word}
+.signtable td:first-child{white-space:nowrap}
+.diag{background:var(--butter);color:#3B2A5A;border:2.5px solid var(--line);border-radius:18px;padding:14px 18px;margin-bottom:14px;box-shadow:3px 3px 0 var(--shadow)}
+.diag h3{margin:0 0 4px;font-size:1.05rem}
+.diag p{margin:4px 0}
+td a.open{font-size:.8rem;font-weight:700}
+footer{margin-top:44px;font-size:.85rem;color:var(--ink-soft);max-width:72ch}
+
+.spin{display:inline-block;animation:bob 1s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-4px) rotate(10deg)}}
+@media (prefers-reduced-motion:reduce){.spin{animation:none}.sticker{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>這週的星星怎麼說<small>一週星座運勢・附資料來源佐證</small></h1>
+    <div class="weekbadge" id="weekBadge">本週</div>
+  </header>
+
+  <div class="top">
+    <div class="wheel" id="wheel" role="group" aria-label="選擇星座">
+      <div class="ring"></div>
+      <div class="sun" id="sunMarker" aria-hidden="true"><span>☀️</span></div>
+      <div class="hub" id="hub"></div>
+    </div>
+
+    <div class="side">
+      <div class="note">
+        <p class="sunfact" id="sunFact"></p>
+        <h2 id="sideTitle">選一個星座吧</h2>
+        <div>資料來源</div>
+        <div class="seg" role="group" aria-label="資料來源">
+          <button data-src="auto" aria-pressed="true">自動切換</button>
+          <button data-src="free" aria-pressed="false">FreeHoroscope</button>
+          <button data-src="aztro" aria-pressed="false">Aztro</button>
+        </div>
+        <div><button class="btn" id="reloadBtn">重新抓取資料</button></div>
+        <details class="adv">
+          <summary>進階設定（CORS 代理）</summary>
+          若瀏覽器擋下跨網域請求，可填入你自己的代理前綴，網址會接在後面送出。留空代表直接連線。
+          <input id="proxy" placeholder="例如 https://你的代理網址/?url=" autocomplete="off">
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <section aria-labelledby="h-week">
+    <h2 id="h-week">本週七天</h2>
+    <div class="days" id="days"></div>
+    <div class="note reading" id="dayReading"><p class="muted">點一天看看當日運勢。</p></div>
+  </section>
+
+  <section aria-labelledby="h-over">
+    <h2 id="h-over">一週總覽</h2>
+    <div class="cols">
+      <div class="note" id="weekly"><p class="muted">等待資料中。</p></div>
+      <div class="note" id="extras"><p class="muted">Aztro 的幸運小物會出現在這裡。</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-proof">
+    <h2 id="h-proof">資料佐證</h2>
+    <p class="muted" style="margin-top:0">每一筆內容都來自下方實際送出的 API 請求，包含網址、HTTP 狀態、回應時間與原始 JSON，可自行點開核對。</p>
+    <div id="diag"></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>來源</th><th>請求網址</th><th>狀態</th><th>耗時</th><th>取得時間</th></tr></thead>
+        <tbody id="logBody"><tr><td colspan="5" class="muted">尚無請求。</td></tr></tbody>
+      </table>
+    </div>
+    <details style="margin-top:14px">
+      <summary>查看原始 JSON 回應</summary>
+      <pre id="raw">（尚無資料）</pre>
+    </details>
+    <details style="margin-top:10px">
+      <summary>天文計算依據與星座日期表</summary>
+      <p>太陽位置以 Jean Meeus《Astronomical Algorithms》低精度太陽黃經公式在瀏覽器即時計算，誤差約 0.01°，採回歸黃道（tropical zodiac），每 30° 為一個星座，0° 從牡羊座起算。</p>
+      <div class="tablewrap"><table class="signtable"><thead><tr><th>星座</th><th>英文</th><th>約略日期</th><th>黃經範圍</th></tr></thead><tbody id="signTable"></tbody></table></div>
+    </details>
+  </section>
+
+  <footer>
+    運勢文字由第三方 API 提供，原文為英文，僅供娛樂參考。FreeHoroscope API 端點為 horoscope-app-api.vercel.app，Aztro API 端點為 aztro.sameerkumar.website。若某個服務離線，頁面會在「自動切換」模式下改用另一個來源，並在資料佐證表中標示失敗原因。
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var SIGNS = [
+    {k:"aries",zh:"牡羊座",emo:"🐏",sym:"♈",r:"3/21–4/19"},
+    {k:"taurus",zh:"金牛座",emo:"🐮",sym:"♉",r:"4/20–5/20"},
+    {k:"gemini",zh:"雙子座",emo:"👯",sym:"♊",r:"5/21–6/21"},
+    {k:"cancer",zh:"巨蟹座",emo:"🦀",sym:"♋",r:"6/22–7/22"},
+    {k:"leo",zh:"獅子座",emo:"🦁",sym:"♌",r:"7/23–8/22"},
+    {k:"virgo",zh:"處女座",emo:"🌾",sym:"♍",r:"8/23–9/22"},
+    {k:"libra",zh:"天秤座",emo:"⚖️",sym:"♎",r:"9/23–10/23"},
+    {k:"scorpio",zh:"天蠍座",emo:"🦂",sym:"♏",r:"10/24–11/22"},
+    {k:"sagittarius",zh:"射手座",emo:"🏹",sym:"♐",r:"11/23–12/21"},
+    {k:"capricorn",zh:"摩羯座",emo:"🐐",sym:"♑",r:"12/22–1/19"},
+    {k:"aquarius",zh:"水瓶座",emo:"🏺",sym:"♒",r:"1/20–2/18"},
+    {k:"pisces",zh:"雙魚座",emo:"🐟",sym:"♓",r:"2/19–3/20"}
+  ];
+  var WD = ["週一","週二","週三","週四","週五","週六","週日"];
+  var FREE = "https://horoscope-app-api.vercel.app/api/v1/get-horoscope/";
+  var AZTRO = "https://aztro.sameerkumar.website/";
+
+  var state = { sign:null, src:"auto", week:[], dayData:{}, selectedDay:null, logs:[], raw:{} };
+  var $ = function(id){ return document.getElementById(id); };
+
+  // ---------- 日期工具 ----------
+  function pad(n){ return (n<10?"0":"")+n; }
+  function ymd(d){ return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()); }
+  function md(d){ return (d.getMonth()+1)+"/"+d.getDate(); }
+  function thisWeek(){
+    var now = new Date(); now.setHours(12,0,0,0);
+    var off = (now.getDay()+6)%7; // 週一=0
+    var mon = new Date(now); mon.setDate(now.getDate()-off);
+    var arr=[]; for(var i=0;i<7;i++){ var d=new Date(mon); d.setDate(mon.getDate()+i); arr.push(d); }
+    return arr;
+  }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];}); }
+
+  // ---------- 天文：太陽黃經（Meeus 低精度） ----------
+  function sunLongitude(date){
+    var jd = date.getTime()/86400000 + 2440587.5;
+    var n = jd - 2451545.0;
+    var L = (280.460 + 0.9856474*n) % 360;
+    var g = ((357.528 + 0.9856003*n) % 360) * Math.PI/180;
+    var lam = L + 1.915*Math.sin(g) + 0.020*Math.sin(2*g);
+    return ((lam % 360) + 360) % 360;
+  }
+
+  // ---------- 本機快取（取得失敗也不影響） ----------
+  function cacheGet(key){
+    try{ var v = localStorage.getItem("hs:"+key); if(!v) return null; var o=JSON.parse(v);
+      if(Date.now()-o.t > 6*3600*1000) return null; return o.v; }catch(e){ return null; }
+  }
+  function cacheSet(key,val){ try{ localStorage.setItem("hs:"+key, JSON.stringify({t:Date.now(),v:val})); }catch(e){} }
+
+  // ---------- 請求與紀錄 ----------
+  function withProxy(url){
+    var p = $("proxy").value.trim();
+    return p ? p + encodeURIComponent(url) : url;
+  }
+  function request(source, url, opts){
+    var started = performance.now();
+    var ctrl = ("AbortController" in window) ? new AbortController() : null;
+    var timer = setTimeout(function(){ if(ctrl) ctrl.abort(); }, 12000);
+    var o = opts || {}; if(ctrl) o.signal = ctrl.signal;
+    var entry = { source:source, url:url, method:(o.method||"GET"), status:"…", ms:0, at:new Date() };
+    state.logs.unshift(entry); renderLogs();
+    return fetch(withProxy(url), o).then(function(res){
+      entry.status = res.status; entry.ms = Math.round(performance.now()-started);
+      return res.text().then(function(txt){
+        var json; try{ json = JSON.parse(txt); }catch(e){ json = null; }
+        state.raw[source+" "+url] = json || txt.slice(0,800);
+        renderLogs();
+        if(!res.ok) throw new Error("HTTP "+res.status);
+        if(!json) throw new Error("回應不是 JSON");
+        return json;
+      });
+    }).catch(function(err){
+      entry.ms = Math.round(performance.now()-started);
+      if(entry.status==="…") entry.status = (err.name==="AbortError") ? "逾時" : "連線失敗（多半是 CORS 或服務離線）";
+      entry.error = String(err.message||err);
+      if(entry.status!=="逾時" && typeof entry.status!=="number") showDiag();
+      renderLogs();
+      throw err;
+    }).finally(function(){ clearTimeout(timer); });
+  }
+
+  function showDiag(){
+    var box=$("diag"); if(box.dataset.on) return; box.dataset.on="1";
+    var inPreview = !/^https?:$/.test(location.protocol) || /claude|anthropic/.test(location.hostname) || window.top!==window.self;
+    box.innerHTML='<div class="diag"><h3>瀏覽器連不到 API，三種可能請依序排除</h3>'+
+      (inPreview?'<p><b>目前頁面跑在預覽沙盒或 iframe 裡</b>，沙盒會擋掉所有對外請求，請下載檔案後用本機或自己的網站開啟。</p>':'')+
+      '<p>點表格裡 FreeHoroscope 那列的「直接開啟」，新分頁看得到 JSON 代表服務正常、是 CORS 擋住，請設定代理。</p>'+
+      '<p>新分頁也打不開，代表服務本身離線，換資料來源或稍後再試。Aztro 是 POST 端點，無法用網址直接開啟測試。</p></div>';
+  }
+
+  function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
+
+  function fetchFreeWeekly(sign){
+    var url = FREE+"weekly?sign="+cap(sign);
+    return request("FreeHoroscope", url).then(function(j){
+      if(!j.data || !j.data.horoscope_data) throw new Error("欄位缺漏");
+      return { week:j.data.week, text:j.data.horoscope_data, src:"FreeHoroscope", url:url };
+    });
+  }
+  function fetchFreeDaily(sign, dateStr){
+    var url = FREE+"daily?sign="+cap(sign)+"&day="+dateStr;
+    return request("FreeHoroscope", url).then(function(j){
+      if(!j.data || !j.data.horoscope_data) throw new Error("欄位缺漏");
+      return { date:j.data.date, text:j.data.horoscope_data, src:"FreeHoroscope", url:url };
+    });
+  }
+  function fetchAztro(sign, day){
+    var url = AZTRO+"?sign="+sign+"&day="+day;
+    return request("Aztro", url, {method:"POST"}).then(function(j){
+      if(!j.description) throw new Error("欄位缺漏");
+      return { date:j.current_date, text:j.description, mood:j.mood, color:j.color, lucky_number:j.lucky_number,
+               lucky_time:j.lucky_time, compatibility:j.compatibility, range:j.date_range, src:"Aztro", url:url };
+    });
+  }
+
+  // Aztro 只提供昨天、今天、明天
+  function aztroDayKey(d){
+    var t = new Date(); t.setHours(12,0,0,0);
+    var diff = Math.round((d - t)/86400000);
+    return diff===-1?"yesterday":diff===0?"today":diff===1?"tomorrow":null;
+  }
+
+  function fetchDay(sign, d){
+    var ds = ymd(d), ck = state.src+":"+sign+":"+ds;
+    var c = cacheGet(ck); if(c) return Promise.resolve(c);
+    var tryFree = function(){ return fetchFreeDaily(sign, ds); };
+    var tryAztro = function(){ var k=aztroDayKey(d); if(!k) return Promise.reject(new Error("Aztro 只提供昨天到明天")); return fetchAztro(sign,k); };
+    var p = state.src==="free" ? tryFree() : state.src==="aztro" ? tryAztro() : tryFree().catch(tryAztro);
+    return p.then(function(v){ cacheSet(ck,v); return v; });
+  }
+
+  // 小型並行控制，避免一次打太多請求
+  function runQueue(tasks, limit){
+    var i=0, results=new Array(tasks.length);
+    function next(){
+      if(i>=tasks.length) return Promise.resolve();
+      var idx=i++;
+      return tasks[idx]().then(function(v){results[idx]={ok:true,v:v};},function(e){results[idx]={ok:false,e:e};}).then(next);
+    }
+    var starters=[]; for(var k=0;k<Math.min(limit,tasks.length);k++) starters.push(next());
+    return Promise.all(starters).then(function(){return results;});
+  }
+
+  // ---------- 畫面 ----------
+  function buildWheel(){
+    var wheel = $("wheel");
+    SIGNS.forEach(function(s,i){
+      var b = document.createElement("button");
+      b.className="sticker"; b.type="button";
+      b.style.setProperty("--a", (i*30)+"deg");
+      b.setAttribute("aria-pressed","false");
+      b.setAttribute("aria-label", s.zh+"，"+s.r);
+      b.dataset.k = s.k;
+      b.innerHTML = '<span class="emo">'+s.emo+'</span><span class="nm">'+s.zh.replace("座","")+'</span>';
+      b.addEventListener("click", function(){ selectSign(s.k); });
+      wheel.appendChild(b);
+    });
+    var tb = $("signTable");
+    tb.innerHTML = SIGNS.map(function(s,i){
+      return "<tr><td>"+s.emo+" "+s.zh+"</td><td>"+cap(s.k)+"</td><td>"+s.r+"</td><td>"+(i*30)+"°–"+(i*30+30)+"°</td></tr>";
+    }).join("");
+  }
+
+  function renderSun(){
+    var lam = sunLongitude(new Date());
+    var idx = Math.floor(lam/30), s = SIGNS[idx], deg = (lam - idx*30).toFixed(1);
+    $("sunMarker").style.setProperty("--sa", (lam)+"deg");
+    // 太陽標記的半徑跟著輪盤大小走
+    var w = $("wheel").getBoundingClientRect().width;
+    $("sunMarker").querySelector("span").style.top = (-(w*0.25) - 14)+"px";
+    $("sunFact").innerHTML = "此刻太陽位於 <b>"+s.emo+" "+s.zh+" "+deg+"°</b>（黃經 <b>"+lam.toFixed(2)+"°</b>），由瀏覽器依天文公式即時計算。";
+  }
+
+  function renderHub(){
+    var s = SIGNS.find(function(x){return x.k===state.sign;});
+    $("hub").innerHTML = s
+      ? '<div class="big">'+s.emo+'</div><div class="zh">'+s.zh+'</div><div class="rg">'+s.sym+" "+s.r+'</div>'
+      : '<div class="big">✨</div><div class="zh">點星座貼紙</div>';
+    $("sideTitle").textContent = s ? s.zh+"的這一週" : "選一個星座吧";
+    document.querySelectorAll(".sticker").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.k===state.sign)); });
+  }
+
+  function renderDays(){
+    var todayStr = ymd(new Date());
+    $("days").innerHTML = state.week.map(function(d,i){
+      var ds = ymd(d), r = state.dayData[ds];
+      var st = !state.sign ? "·" : !r ? '<span class="spin">⭐</span>' : r.ok ? "🌟" : "☁️";
+      return '<button class="day'+(ds===todayStr?" today":"")+'" data-d="'+ds+'" aria-pressed="'+(state.selectedDay===ds)+'">'+
+             '<span class="wd">'+WD[i]+'</span><span class="dt">'+md(d)+'</span><span class="st" aria-hidden="true">'+st+'</span></button>';
+    }).join("");
+    $("days").querySelectorAll(".day").forEach(function(b){
+      b.addEventListener("click", function(){ state.selectedDay=b.dataset.d; renderDays(); renderDayReading(); });
+    });
+  }
+
+  function renderDayReading(){
+    var box = $("dayReading");
+    if(!state.sign){ box.innerHTML='<p class="muted">先在上方輪盤選一個星座。</p>'; return; }
+    var ds = state.selectedDay, r = state.dayData[ds];
+    var d = state.week.find(function(x){return ymd(x)===ds;});
+    var title = (d? WD[state.week.indexOf(d)]+" "+md(d) : ds);
+    if(!r){ box.innerHTML='<h3>'+title+'</h3><p class="muted"><span class="spin">⭐</span> 正在向星星打聽中…</p>'; return; }
+    if(!r.ok){ box.innerHTML='<h3>'+title+'</h3><p class="err">這天的資料沒有取得。</p><p class="muted">原因是「'+esc(r.e && r.e.message)+'」。未來日期通常尚未發布，或 API 不提供該日期。</p>'; return; }
+    box.innerHTML = '<h3>'+title+'</h3><p class="en" lang="en">'+esc(r.v.text)+'</p>'+
+      '<p class="muted" style="margin-top:8px;font-size:.85rem">來源 '+esc(r.v.src)+(r.v.date?"，API 標示日期 "+esc(r.v.date):"")+'</p>';
+  }
+
+  function renderWeekly(res){
+    var box = $("weekly");
+    if(!res){ box.innerHTML='<p class="muted"><span class="spin">⭐</span> 讀取一週總覽中…</p>'; return; }
+    if(!res.ok){ box.innerHTML='<h3 style="margin-top:0">一週總覽</h3><p class="err">週運勢沒有取得。</p><p class="muted">原因是「'+esc(res.e.message)+'」。Aztro 沒有週運勢端點，所以週總覽只能來自 FreeHoroscope，可以試試代理設定。</p>'; return; }
+    box.innerHTML = '<h3 style="margin-top:0">'+esc(res.v.week||"本週")+'</h3><p class="en" lang="en">'+esc(res.v.text)+'</p>'+
+      '<p class="muted" style="font-size:.85rem;margin-bottom:0">來源 FreeHoroscope weekly 端點</p>';
+  }
+
+  function renderExtras(res){
+    var box = $("extras");
+    if(!res){ box.innerHTML='<p class="muted"><span class="spin">⭐</span> 讀取幸運小物中…</p>'; return; }
+    if(!res.ok){ box.innerHTML='<h3 style="margin-top:0">今日幸運小物</h3><p class="muted">Aztro 這次沒有回應（'+esc(res.e.message)+'），幸運色與幸運數字只有 Aztro 提供。</p>'; return; }
+    var v=res.v;
+    box.innerHTML='<h3 style="margin-top:0">今日幸運小物</h3><dl class="lucky">'+
+      '<div><dt>心情</dt><dd>'+esc(v.mood)+'</dd></div><div><dt>幸運色</dt><dd>'+esc(v.color)+'</dd></div>'+
+      '<div><dt>幸運數字</dt><dd>'+esc(v.lucky_number)+'</dd></div><div><dt>幸運時間</dt><dd>'+esc(v.lucky_time)+'</dd></div>'+
+      '<div style="grid-column:1/-1"><dt>速配星座</dt><dd>'+esc(v.compatibility)+'</dd></div></dl>'+
+      '<p class="muted" style="font-size:.85rem;margin-bottom:0">來源 Aztro，日期 '+esc(v.date)+'</p>';
+  }
+
+  function renderLogs(){
+    var tb = $("logBody");
+    if(!state.logs.length){ tb.innerHTML='<tr><td colspan="5" class="muted">尚無請求。</td></tr>'; return; }
+    tb.innerHTML = state.logs.slice(0,40).map(function(l){
+      var ok = typeof l.status==="number" && l.status>=200 && l.status<300;
+      var st = l.status==="…" ? '<span class="spin">⭐</span>' : '<span class="'+(ok?"ok":"ng")+'">'+esc(l.status)+'</span>';
+      var open = l.method==="GET" ? ' <a class="open" href="'+esc(l.url)+'" target="_blank" rel="noopener">直接開啟</a>' : "";
+      return "<tr><td>"+esc(l.source)+"</td><td><code>"+esc(l.method)+" "+esc(l.url)+"</code>"+open+(l.error&&!ok?'<div class="muted">'+esc(l.error)+"</div>":"")+
+             "</td><td>"+st+"</td><td>"+(l.ms?l.ms+" ms":"")+"</td><td>"+l.at.toLocaleString("zh-TW",{hour12:false})+"</td></tr>";
+    }).join("");
+    $("raw").textContent = Object.keys(state.raw).length ? JSON.stringify(state.raw,null,2) : "（尚無資料）";
+  }
+
+  // ---------- 主流程 ----------
+  var loadToken = 0;
+  function load(){
+    if(!state.sign) return;
+    var token = ++loadToken;
+    state.dayData = {}; state.raw = {};
+    renderDays(); renderDayReading(); renderWeekly(null); renderExtras(null);
+
+    var wk = state.src==="aztro" ? Promise.reject(new Error("目前選擇只用 Aztro，而 Aztro 沒有週運勢")) : fetchFreeWeekly(state.sign);
+    wk.then(function(v){ if(token===loadToken) renderWeekly({ok:true,v:v}); },
+            function(e){ if(token===loadToken) renderWeekly({ok:false,e:e}); });
+
+    var az = state.src==="free" ? Promise.reject(new Error("目前選擇只用 FreeHoroscope")) : fetchAztro(state.sign,"today");
+    az.then(function(v){ if(token===loadToken) renderExtras({ok:true,v:v}); },
+            function(e){ if(token===loadToken) renderExtras({ok:false,e:e}); });
+
+    var tasks = state.week.map(function(d){
+      return function(){
+        return fetchDay(state.sign, d).then(function(v){
+          if(token===loadToken){ state.dayData[ymd(d)]={ok:true,v:v}; renderDays(); if(state.selectedDay===ymd(d)) renderDayReading(); }
+        }, function(e){
+          if(token===loadToken){ state.dayData[ymd(d)]={ok:false,e:e}; renderDays(); if(state.selectedDay===ymd(d)) renderDayReading(); }
+          throw e;
+        });
+      };
+    });
+    runQueue(tasks, 3);
+  }
+
+  function selectSign(k){
+    state.sign = k;
+    try{ localStorage.setItem("hs:sign", k); }catch(e){}
+    renderHub(); load();
+  }
+
+  // 初始化
+  state.week = thisWeek();
+  state.selectedDay = ymd(new Date());
+  $("weekBadge").textContent = md(state.week[0])+" – "+md(state.week[6]);
+  buildWheel(); renderSun(); renderHub(); renderDays(); renderDayReading();
+  window.addEventListener("resize", renderSun);
+
+  document.querySelectorAll(".seg button").forEach(function(b){
+    b.addEventListener("click", function(){
+      state.src = b.dataset.src;
+      document.querySelectorAll(".seg button").forEach(function(x){ x.setAttribute("aria-pressed", String(x===b)); });
+      load();
+    });
+  });
+  $("reloadBtn").addEventListener("click", function(){
+    try{ Object.keys(localStorage).forEach(function(k){ if(k.indexOf("hs:")===0 && k!=="hs:sign") localStorage.removeItem(k); }); }catch(e){}
+    load();
+  });
+
+  // 預設選太陽目前所在的星座，或上次選過的
+  var saved=null; try{ saved = localStorage.getItem("hs:sign"); }catch(e){}
+  selectSign(saved || SIGNS[Math.floor(sunLongitude(new Date())/30)].k);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>楊老師的星座週報 11/2–11/8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EFE8FF; --paper:#FFFFFF; --ink:#3A2E5C; --soft:#7A6E9C;
+  --pink:#FF8FB8; --mint:#8EE0C2; --butter:#FFE07A; --sky:#9CC8FF; --lilac:#C9B5FF;
+  --line:#3A2E5C; --shadow:#3A2E5C;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1F1A3A; --paper:#2C2550; --ink:#F4EEFF; --soft:#B8ADDC;
+    --pink:#FF7AAA; --mint:#5FC9A4; --butter:#F2CC4F; --sky:#6FA8EE; --lilac:#9C84E8;
+    --line:#F4EEFF; --shadow:#0E0B20; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1F1A3A; --paper:#2C2550; --ink:#F4EEFF; --soft:#B8ADDC;
+  --pink:#FF7AAA; --mint:#5FC9A4; --butter:#F2CC4F; --sky:#6FA8EE; --lilac:#9C84E8;
+  --line:#F4EEFF; --shadow:#0E0B20; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Huninn","PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  font-size:17px; line-height:1.7;
+  background-image:radial-gradient(var(--lilac) 1.5px,transparent 1.6px);
+  background-size:28px 28px;
+}
+.wrap{max-width:980px;margin:0 auto;padding:28px 18px 60px}
+header{text-align:center;padding:12px 0 8px}
+.moon{font-size:46px;display:inline-block;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px) rotate(-6deg)}}
+h1{
+  font-size:clamp(34px,7vw,58px); line-height:1.15; margin:6px 0 4px; letter-spacing:.04em;
+  color:var(--ink);
+  text-shadow:3px 3px 0 var(--pink),6px 6px 0 var(--butter);
+}
+.week{
+  display:inline-block;background:var(--paper);border:2.5px solid var(--line);
+  border-radius:999px;padding:4px 18px;margin-top:10px;font-size:16px;
+  box-shadow:3px 3px 0 var(--shadow);
+}
+.hint{color:var(--soft);margin:14px 0 22px;font-size:16px}
+
+/* sticker grid */
+.signs{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;list-style:none;padding:0;margin:0}
+@media (max-width:720px){.signs{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:420px){.signs{grid-template-columns:repeat(3,1fr)}}
+.sign{
+  appearance:none;font:inherit;color:var(--ink);cursor:pointer;width:100%;
+  background:var(--paper);border:2.5px solid var(--line);border-radius:22px;
+  padding:10px 4px 8px;text-align:center;box-shadow:4px 4px 0 var(--shadow);
+  transition:transform .15s,box-shadow .15s;
+}
+.sign:nth-child(4n+1){transform:rotate(-2deg)}
+.sign:nth-child(4n+3){transform:rotate(2deg)}
+.sign:hover{transform:translateY(-3px) rotate(0)}
+.sign[aria-pressed="true"]{background:var(--butter);transform:translate(2px,2px) rotate(0);box-shadow:2px 2px 0 var(--shadow)}
+.sign:focus-visible{outline:3px dashed var(--pink);outline-offset:4px}
+.sign .em{font-size:34px;display:block;line-height:1.2}
+.sign .nm{font-size:16px;display:block}
+.sign .dt{font-size:12px;color:var(--soft);display:block}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sign[aria-pressed="true"] .dt{color:#3A2E5C}:root:not([data-theme="light"]) .sign[aria-pressed="true"]{color:#3A2E5C}}
+:root[data-theme="dark"] .sign[aria-pressed="true"]{color:#3A2E5C}
+:root[data-theme="dark"] .sign[aria-pressed="true"] .dt{color:#3A2E5C}
+
+.finder{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin:22px 0 6px}
+.finder label{color:var(--soft);font-size:15px}
+.finder input{
+  font:inherit;font-size:15px;color:var(--ink);background:var(--paper);
+  border:2.5px solid var(--line);border-radius:14px;padding:4px 10px;
+}
+.finder input:focus-visible{outline:3px dashed var(--pink);outline-offset:2px}
+
+/* card */
+.card{
+  margin-top:30px;background:var(--paper);border:3px solid var(--line);border-radius:32px;
+  box-shadow:8px 8px 0 var(--shadow);padding:26px clamp(18px,4vw,40px) 30px;position:relative;
+}
+.card.pop{animation:pop .35s ease}
+@keyframes pop{0%{transform:scale(.96);opacity:.4}100%{transform:scale(1);opacity:1}}
+.top{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.big{
+  font-size:64px;width:104px;height:104px;display:grid;place-items:center;flex:none;
+  border-radius:50%;border:3px solid var(--line);background:var(--pink);
+}
+.top h2{margin:0;font-size:34px;line-height:1.2}
+.top .sub{color:var(--soft);font-size:15px}
+.overall{font-size:22px;letter-spacing:2px;margin-top:2px}
+.summary{
+  background:var(--bg);border-radius:20px;padding:14px 18px;margin:20px 0 6px;
+  font-size:18px;max-width:72ch;
+}
+.areas{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+@media (max-width:620px){.areas{grid-template-columns:1fr}}
+.area{border:2.5px solid var(--line);border-radius:22px;padding:12px 16px}
+.area h3{margin:0 0 2px;font-size:18px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.area p{margin:4px 0 0;font-size:16px}
+.area.love{background:color-mix(in srgb,var(--pink) 28%,var(--paper))}
+.area.work{background:color-mix(in srgb,var(--sky) 30%,var(--paper))}
+.area.money{background:color-mix(in srgb,var(--butter) 38%,var(--paper))}
+.area.health{background:color-mix(in srgb,var(--mint) 32%,var(--paper))}
+.dots{font-size:15px;letter-spacing:1px;white-space:nowrap}
+
+.mood h3,.lucky h3,.tip h3{font-size:19px;margin:26px 0 10px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:end;height:150px;padding:0 2px}
+.day{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px}
+.bar{
+  width:100%;max-width:44px;border:2.5px solid var(--line);border-radius:14px 14px 8px 8px;
+  background:var(--lilac);transform-origin:bottom;animation:grow .6s cubic-bezier(.3,1.4,.6,1) both;
+}
+.bar.hi{background:var(--pink)}
+@keyframes grow{from{transform:scaleY(0)}}
+.day .lb{font-size:13px;color:var(--soft);text-align:center;line-height:1.3}
+.day .face{font-size:18px;line-height:1}
+
+.lucky .row{display:flex;flex-wrap:wrap;gap:10px}
+.chip{
+  border:2.5px solid var(--line);border-radius:999px;padding:6px 14px;background:var(--paper);
+  display:flex;align-items:center;gap:8px;font-size:16px;
+}
+.swatch{width:18px;height:18px;border-radius:50%;border:2px solid var(--line);display:inline-block}
+.tip{
+  margin-top:8px;position:relative;
+}
+.bubble{
+  display:flex;gap:12px;align-items:flex-start;
+}
+.ling{
+  flex:none;width:52px;height:52px;border-radius:50%;background:var(--butter);
+  border:2.5px solid var(--line);display:grid;place-items:center;font-size:28px;
+}
+.say{
+  background:var(--bg);border-radius:4px 22px 22px 22px;padding:12px 16px;font-size:17px;max-width:64ch;
+}
+footer{text-align:center;color:var(--soft);font-size:13px;margin-top:34px}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="moon" aria-hidden="true">🌙</span>
+    <h1>楊老師的星座週報</h1>
+    <span class="week">2026 年 11 月 2 日～11 月 8 日</span>
+    <p class="hint">點一下你的星座貼紙，看看這週的小運勢吧 ✨</p>
+  </header>
+
+  <ul class="signs" id="signs" aria-label="選擇星座"></ul>
+
+  <div class="finder">
+    <label for="bd">不確定自己的星座？輸入生日</label>
+    <input type="date" id="bd">
+  </div>
+
+  <section class="card" id="card" aria-live="polite"></section>
+
+  <footer>星座運勢僅供娛樂參考，最好的運氣還是自己創造的喔 💫</footer>
+</div>
+
+<script>
+const DAYS=["週一","週二","週三","週四","週五","週六","週日"];
+const DATES=["11/2","11/3","11/4","11/5","11/6","11/7","11/8"];
+const FACES=["","😵","😐","🙂","😊","🥰"];
+const S=[
+ {id:"aries",nm:"牡羊座",em:"🐏",dt:"3/21–4/19",ov:4,
+  sum:"衝勁滿滿的一週！週初就有好點子冒出來，記得先寫下來再行動，別讓靈感溜走。",
+  love:[4,"主動傳一則可愛的訊息，會換來意想不到的甜甜回覆。"],
+  work:[5,"提案或簡報特別有說服力，週三是你的高光時刻。"],
+  money:[3,"小心衝動購物，購物車先放三天再決定。"],
+  health:[3,"運動量夠，但睡眠不太夠，早點上床吧。"],
+  mood:[4,5,5,3,4,3,4],color:["草莓紅","#FF6F8E"],num:9,item:"紅色髮圈",
+  tip:"這週你像一顆小火箭，衝之前先對好方向就會飛得又快又穩喔！"},
+ {id:"taurus",nm:"金牛座",em:"🐮",dt:"4/20–5/20",ov:4,
+  sum:"穩穩的節奏帶來穩穩的好運，週末很適合犒賞自己一頓好吃的。",
+  love:[4,"單身的你在聚會中容易被注意，有伴的你適合一起煮飯。"],
+  work:[3,"進度有點被別人拖住，耐心溝通比生悶氣有效。"],
+  money:[5,"財運亮晶晶！之前的付出可能有回報入帳。"],
+  health:[4,"腸胃狀況不錯，但甜點還是別天天吃。"],
+  mood:[3,3,4,4,5,5,4],color:["抹茶綠","#8CC77A"],num:6,item:"小盆栽",
+  tip:"慢慢來比較快，這句話這週完全是為你寫的～"},
+ {id:"gemini",nm:"雙子座",em:"👯",dt:"5/21–6/21",ov:3,
+  sum:"訊息量爆炸的一週，社交很熱鬧，但要小心答應太多事情把自己累壞。",
+  love:[3,"聊天很開心，但對方可能在等你說出真心話。"],
+  work:[4,"跨部門合作很順，你的人脈這週派上大用場。"],
+  money:[3,"收支平衡，訂閱服務可以來整理一下。"],
+  health:[2,"腦袋轉不停容易失眠，睡前放下手機十分鐘。"],
+  mood:[4,4,3,2,3,4,4],color:["檸檬黃","#FFD84D"],num:5,item:"便利貼",
+  tip:"把待辦寫在便利貼上，做完一張撕一張，成就感滿點！"},
+ {id:"cancer",nm:"巨蟹座",em:"🦀",dt:"6/22–7/22",ov:4,
+  sum:"家人和老朋友是這週的能量來源，一通電話就能讓心情回暖。",
+  love:[5,"溫柔的小舉動會被看見，感情升溫中 💕"],
+  work:[3,"別把所有事都攬在身上，學著請別人幫忙。"],
+  money:[4,"適合規劃存錢目標，週四有小確幸。"],
+  health:[4,"泡個熱水澡或熱茶，身心都會鬆開。"],
+  mood:[3,4,4,5,4,5,4],color:["牛奶白","#F3EFE6"],num:2,item:"保溫杯",
+  tip:"你照顧大家的時候，也記得抱抱自己一下喔。"},
+ {id:"leo",nm:"獅子座",em:"🦁",dt:"7/23–8/22",ov:5,
+  sum:"閃閃發光的一週！你的存在感超強，很適合表現自己、爭取機會。",
+  love:[4,"魅力值破表，但記得也聽聽對方想說什麼。"],
+  work:[5,"領導力被看見，有機會接到重要任務。"],
+  money:[4,"有小額意外之財，請朋友喝杯飲料分享好運。"],
+  health:[4,"精神很好，但喉嚨要多喝水保養。"],
+  mood:[5,4,5,5,4,5,5],color:["金橘色","#FFB347"],num:1,item:"亮亮的飾品",
+  tip:"這週的舞台是你的，大方站上去就對了！"},
+ {id:"virgo",nm:"處女座",em:"🌾",dt:"8/23–9/22",ov:3,
+  sum:"細節控的你這週效率很高，但要提醒自己，不完美也沒有關係。",
+  love:[3,"別太挑剔對方的小缺點，可愛的地方更多呀。"],
+  work:[4,"整理文件與流程特別順手，週二最有效率。"],
+  money:[4,"記帳的好習慣讓你這週存下一筆小錢。"],
+  health:[3,"肩頸容易緊繃，每小時起來伸個懶腰。"],
+  mood:[4,5,3,3,4,3,4],color:["奶茶色","#D8B89A"],num:7,item:"可愛手帳",
+  tip:"九十分也是很棒的分數，給自己一個讚！"},
+ {id:"libra",nm:"天秤座",em:"⚖️",dt:"9/23–10/23",ov:4,
+  sum:"人緣運很好，協調和溝通都很到位，不過遇到選擇時別猶豫太久。",
+  love:[5,"約會運超好，適合安排一場美美的小旅行。"],
+  work:[3,"兩個方案都好的時候，先選一個試試看。"],
+  money:[3,"美的東西讓你心動，預算要先設定好。"],
+  health:[4,"心情好氣色也好，多曬點太陽吧。"],
+  mood:[4,3,4,4,5,5,4],color:["蜜桃粉","#FFB5C2"],num:6,item:"香氛小物",
+  tip:"擲硬幣的那一秒，你心裡期待的答案就是答案啦～"},
+ {id:"scorpio",nm:"天蠍座",em:"🦂",dt:"10/24–11/22",ov:5,
+  sum:"生日季的能量加持！直覺特別準，很適合做重要決定或開始新計畫。",
+  love:[4,"深度對話讓關係更靠近，真心換真心。"],
+  work:[5,"洞察力超強，能一眼看出問題核心。"],
+  money:[4,"投資學習會很有收穫，買本好書吧。"],
+  health:[4,"精神集中，但別熬夜追劇追到天亮。"],
+  mood:[5,4,5,4,5,4,5],color:["葡萄紫","#9B6BD6"],num:8,item:"水晶小吊飾",
+  tip:"生日快到囉！先祝你這一歲閃亮亮 🎂"},
+ {id:"sagittarius",nm:"射手座",em:"🏹",dt:"11/23–12/21",ov:4,
+  sum:"想出去走走的心蠢蠢欲動，就算只是去附近新開的咖啡店也很好！",
+  love:[3,"自由和陪伴要取得平衡，多約對方一起冒險。"],
+  work:[4,"學新技能的好時機，報名那堂課吧。"],
+  money:[3,"旅費預算記得抓寬一點點。"],
+  health:[5,"活力十足，戶外運動讓你更快樂。"],
+  mood:[3,4,4,4,5,5,5],color:["天空藍","#7EC8F2"],num:3,item:"旅行小包",
+  tip:"新的路線會帶來新的靈感，這週試著換條路回家吧！"},
+ {id:"capricorn",nm:"摩羯座",em:"🐐",dt:"12/22–1/19",ov:3,
+  sum:"努力的你一直被看在眼裡，這週會收到肯定，但也要記得休息。",
+  love:[3,"忙歸忙，一句晚安也是愛的表現。"],
+  work:[5,"長期計畫有突破，主管對你很放心。"],
+  money:[4,"穩健理財的成果慢慢浮現。"],
+  health:[2,"膝蓋和腰要小心，久坐記得起身走走。"],
+  mood:[3,4,4,5,3,2,3],color:["可可棕","#A47551"],num:4,item:"好用的筆",
+  tip:"休息不是偷懶，是幫下一次衝刺充電喔 🔋"},
+ {id:"aquarius",nm:"水瓶座",em:"🏺",dt:"1/20–2/18",ov:4,
+  sum:"腦洞大開的一週！你的奇思妙想很可能變成大家都喜歡的好點子。",
+  love:[3,"朋友變戀人的機會悄悄出現，留意身邊的人。"],
+  work:[5,"創意提案被採用的機率很高，大膽說出來。"],
+  money:[3,"小科技產品很誘人，先想想真的需要嗎。"],
+  health:[4,"散步時聽 Podcast 是你最好的充電方式。"],
+  mood:[4,5,4,3,4,4,5],color:["薄荷藍","#7FDDD4"],num:11,item:"耳機",
+  tip:"你的怪點子就是你的超能力，別藏起來！"},
+ {id:"pisces",nm:"雙魚座",em:"🐟",dt:"2/19–3/20",ov:4,
+  sum:"靈感與感受力都很豐沛，適合創作、寫字、畫畫，或安靜聽一首歌。",
+  love:[5,"浪漫指數滿分，適合說出藏在心裡的話。"],
+  work:[3,"截止日期要盯緊，設個鬧鐘提醒自己。"],
+  money:[3,"容易心軟借錢，記得量力而為。"],
+  health:[4,"多喝水、多睡覺，水象星座要好好補水。"],
+  mood:[4,3,4,5,4,5,4],color:["海洋藍","#6FA3E0"],num:12,item:"貝殼小物",
+  tip:"你的溫柔很珍貴，也要記得留一點給自己喔 🐚"}
+];
+
+const ul=document.getElementById("signs");
+const card=document.getElementById("card");
+S.forEach(s=>{
+  const li=document.createElement("li");
+  li.innerHTML=`<button class="sign" type="button" aria-pressed="false" data-id="${s.id}">
+    <span class="em" aria-hidden="true">${s.em}</span><span class="nm">${s.nm}</span><span class="dt">${s.dt}</span></button>`;
+  ul.appendChild(li);
+});
+ul.addEventListener("click",e=>{
+  const b=e.target.closest(".sign"); if(!b)return;
+  select(b.dataset.id);
+});
+
+const stars=n=>"★".repeat(n)+"☆".repeat(5-n);
+const hearts=(n,on,off)=>on.repeat(n)+off.repeat(5-n);
+
+function render(id){
+  const s=S.find(x=>x.id===id)||S[7];
+  document.querySelectorAll(".sign").forEach(b=>b.setAttribute("aria-pressed",b.dataset.id===s.id));
+  const max=Math.max(...s.mood);
+  card.innerHTML=`
+    <div class="top">
+      <div class="big" aria-hidden="true">${s.em}</div>
+      <div>
+        <h2>${s.nm}</h2>
+        <div class="sub">${s.dt}　本週整體運勢</div>
+        <div class="overall" aria-label="整體 ${s.ov} 顆星">${stars(s.ov)}</div>
+      </div>
+    </div>
+    <p class="summary">${s.sum}</p>
+    <div class="areas">
+      <div class="area love"><h3>💗 愛情 <span class="dots" aria-label="${s.love[0]} 分">${hearts(s.love[0],"♥","♡")}</span></h3><p>${s.love[1]}</p></div>
+      <div class="area work"><h3>💼 工作 <span class="dots" aria-label="${s.work[0]} 分">${stars(s.work[0])}</span></h3><p>${s.work[1]}</p></div>
+      <div class="area money"><h3>💰 財運 <span class="dots" aria-label="${s.money[0]} 分">${hearts(s.money[0],"●","○")}</span></h3><p>${s.money[1]}</p></div>
+      <div class="area health"><h3>🌿 健康 <span class="dots" aria-label="${s.health[0]} 分">${hearts(s.health[0],"✿","❀")}</span></h3><p>${s.health[1]}</p></div>
+    </div>
+    <div class="mood">
+      <h3>每日心情曲線</h3>
+      <div class="days">
+        ${s.mood.map((m,i)=>`<div class="day" aria-label="${DAYS[i]} 心情 ${m} 分">
+          <span class="face" aria-hidden="true">${FACES[m]}</span>
+          <div class="bar ${m===max?"hi":""}" style="height:${m*18}px;animation-delay:${i*60}ms"></div>
+          <span class="lb">${DAYS[i]}<br>${DATES[i]}</span></div>`).join("")}
+      </div>
+    </div>
+    <div class="lucky">
+      <h3>本週幸運小物</h3>
+      <div class="row">
+        <span class="chip"><span class="swatch" style="background:${s.color[1]}"></span>幸運色 ${s.color[0]}</span>
+        <span class="chip">🔢 幸運數字 ${s.num}</span>
+        <span class="chip">🎀 幸運物 ${s.item}</span>
+        <span class="chip">📅 最旺的一天 ${DAYS[s.mood.indexOf(max)]}</span>
+      </div>
+    </div>
+    <div class="tip">
+      <h3>阿玲悄悄話</h3>
+      <div class="bubble"><div class="ling" aria-hidden="true">🐰</div><p class="say">${s.tip}</p></div>
+    </div>`;
+  card.classList.remove("pop"); void card.offsetWidth; card.classList.add("pop");
+}
+
+function signFromDate(v){
+  if(!v)return null;
+  const [,m,d]=v.split("-").map(Number); const md=m*100+d;
+  const r=[[120,"capricorn"],[219,"aquarius"],[321,"pisces"],[420,"aries"],[521,"taurus"],[622,"gemini"],
+    [723,"cancer"],[823,"leo"],[923,"virgo"],[1024,"libra"],[1123,"scorpio"],[1222,"sagittarius"],[1232,"capricorn"]];
+  for(const [lim,id] of r){ if(md<lim) return id; }
+}
+document.getElementById("bd").addEventListener("change",e=>{
+  const id=signFromDate(e.target.value); if(id) select(id);
+});
+
+function select(id){
+  render(id);
+  try{ card.scrollIntoView({behavior:"smooth",block:"start"}); }catch(err){}
+}
+let startId="scorpio";
+try{
+  const h=(window.location.hash||"").slice(1);
+  if(S.some(s=>s.id===h)) startId=h;
+}catch(err){}
+render(startId);
+</script>
+</body>
+</html>
